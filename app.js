@@ -94,3 +94,9 @@ document.addEventListener('keydown', (e) => {
   window.addEventListener('scroll', onScrollHero, { passive: true });
   onScrollHero();
 })();
+
+// Manejo del formulario (POST tradicional con FormSubmit)
+const form = document.getElementById('contactForm');
+if (form) {
+  // Sin preventDefault; el navegador hará el POST al action.
+}
