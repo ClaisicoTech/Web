@@ -1,15 +1,29 @@
-# Contacto: cambia a info@claisico.com y envía formulario a ese correo
+# Fix: formulario envía por POST a FormSubmit
 
-Este PR realiza dos mejoras de contacto:
+Este PR asegura que el formulario **hace POST** (no GET) a FormSubmit:
 
-- Actualiza el correo visible en la sección **Contacto** a `info@claisico.com` (con enlace mailto).
-- Conecta el formulario a **FormSubmit** para enviar los datos a `info@claisico.com`, con redirección a `gracias.html` tras el envío.
+- En `index.html` el `<form>` lleva `method="POST"` y el botón de envío está **dentro** del `<form>` con `type="submit"`.
+- En `app.js` se elimina cualquier `preventDefault()` que bloquee el envío (mantenemos POST tradicional).
 
-### Detalles técnicos
-- `index.html`: cambio de correo, `form action="https://formsubmit.co/info@claisico.com"` y campos ocultos (`_honey`, `_captcha=false`, `_subject`, `_template=table`, `_next=gracias.html`).
-- `app.js`: se elimina el `preventDefault` de la demo para permitir el POST tradicional.
-- `gracias.html`: nueva página de confirmación (incluye `<meta refresh>` de vuelta a inicio en 6s).
+### Bloque de formulario (referencia rápida)
+```html
+<form action="https://formsubmit.co/info@claisico.com" method="POST" id="contactForm">
+  <input type="text" name="_honey" style="display:none">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_subject" value="Nuevo contacto desde claisico.com">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="gracias.html">
 
-> Nota: en el **primer envío** FormSubmit pedirá verificar `info@claisico.com`. Una vez verificado, llegarán los mensajes de forma normal.
+  <p><input class="w3-input w3-border" type="text" placeholder="Nombre" required name="name"></p>
+  <p><input class="w3-input w3-border" type="email" placeholder="Correo" required name="email"></p>
+  <p><input class="w3-input w3-border" type="text" placeholder="Empresa" name="company"></p>
+  <p><textarea class="w3-input w3-border" rows="3" placeholder="¿Qué te gustaría automatizar?" name="message"></textarea></p>
+  <p>
+    <button class="w3-button w3-black" type="submit" formmethod="post">
+      <i class="fa fa-paper-plane"></i> Enviar
+    </button>
+  </p>
+</form>
+```
 
-— ChatGPT
+> Revisa en **Settings → Pages** que estás publicando desde la rama que recibirá este PR. Tras el merge, prueba el envío y verifica que en la pestaña *Network* la request a `formsubmit.co/...` sea **Method: POST**.
