@@ -1,0 +1,51 @@
+/* Tipografía base y layout */
+body, h1, h2, h3, h4, h5, h6 { font-family: "Raleway", sans-serif; }
+html, body { height: 100%; line-height: 1.8; margin: 0; }
+
+/* Paleta y utilidades */
+.brand { color: #0ea5e9; }
+.brand-bg { background: #0ea5e9; }
+.brand-dark { background: #0b4e63; }
+.brand-text-dark { color: #0b4e63; }
+
+/* Hero */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://picsum.photos/1600/900?blur=1"); /* sustituir por ./img/hero.jpg */
+  min-height: 100%;
+  position: relative;
+}
+.bgimg-1::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
+}
+.hero-copy { padding: 48px; position: relative; z-index: 1; }
+.hero-ctas a { margin-right: 8px; }
+.hero-social { padding: 24px 48px; position: relative; z-index: 1; }
+
+/* Secciones */
+.section { padding: 96px 16px; }
+.features { margin-top: 48px; }
+.cards { margin-top: 48px; }
+.metrics { padding: 64px 16px; }
+.gallery { margin-top: 48px; }
+.plans { margin-top: 48px; }
+.contact-inner { margin-top: 32px; }
+.map-img { width: 100%; margin-top: 24px; }
+
+/* Tarjetas */
+.svc-card { border: 1px solid #eee; border-radius: 10px; }
+.svc-card .w3-button { border-radius: 8px; }
+
+/* Precio destacado */
+.plan-featured { transform: translateY(-8px); }
+
+/* Navbar spacing */
+.w3-bar .w3-button { padding: 16px; }
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .hero-copy { padding: 32px; }
+}
