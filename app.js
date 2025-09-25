@@ -1,4 +1,4 @@
-// Año dinámico en footer
+// Año dinámico y funciones base
 document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
@@ -39,12 +39,58 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// Manejo básico del formulario (demo)
-const form = document.getElementById('contactForm');
-if (form) {
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('¡Gracias! Te contactaremos en breve.');
-    form.reset();
-  });
-}
+// === Enhancements ===
+
+// Scroll reveal con IntersectionObserver
+(() => {
+  const items = document.querySelectorAll('.reveal');
+  if (!items.length) return;
+  if (!('IntersectionObserver' in window)) {
+    items.forEach(el => el.classList.add('in'));
+    return;
+  }
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(el => io.observe(el));
+})();
+
+// Navbar estilo "scrolled"
+(() => {
+  const w3Top = document.querySelector('.w3-top');
+  if (!w3Top) return;
+  const onScroll = () => {
+    if (window.scrollY > 10) w3Top.classList.add('scrolled');
+    else w3Top.classList.remove('scrolled');
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+})();
+
+// Botón flotante "Arriba"
+(() => {
+  const toTop = document.getElementById('toTop');
+  if (!toTop) return;
+  const toggleTop = () => {
+    toTop.style.display = window.scrollY > 600 ? 'inline-block' : 'none';
+  };
+  toggleTop();
+  window.addEventListener('scroll', toggleTop, { passive: true });
+})();
+
+// Micro-parallax del copy del hero
+(() => {
+  const heroCopy = document.querySelector('.hero-copy');
+  if (!heroCopy) return;
+  const onScrollHero = () => {
+    const y = Math.min(window.scrollY, 200);
+    heroCopy.style.transform = `translateY(${y * 0.1}px)`;
+  };
+  window.addEventListener('scroll', onScrollHero, { passive: true });
+  onScrollHero();
+})();
