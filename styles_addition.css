@@ -1,0 +1,9 @@
+/* === Logo en navbar (PNG) + contraste móvil === */
+.logo-img { height: 28px; vertical-align: middle; }
+
+/* En móvil el navbar es oscuro: invertimos PNG/JPG para asegurar contraste */
+@media (max-width: 640px) {
+  .w3-top .w3-bar { background:#0b1220 !important; color:#fff !important; }
+  .w3-top .w3-bar .w3-button { color:#fff !important; }
+  .w3-top .logo-img { filter: brightness(0) invert(1); }
+}
