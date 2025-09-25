@@ -268,16 +268,15 @@
     </p>
     <br>
 
-    <!-- FormSubmit: envía a info@claisico.com y redirige a gracias.html -->
+    <!-- FormSubmit: envía a info@claisico.com y redirige a https://claisico.com/gracias.html -->
     <form action="https://formsubmit.co/info@claisico.com" method="POST" id="contactForm">
       <!-- Anti-spam (honeypot) -->
       <input type="text" name="_honey" style="display:none">
-      <!-- Desactivar captcha de FormSubmit (opcional) -->
+      <!-- Opcionales -->
       <input type="hidden" name="_captcha" value="false">
-      <!-- Asunto y plantilla -->
       <input type="hidden" name="_subject" value="Nuevo contacto desde claisico.com">
       <input type="hidden" name="_template" value="table">
-      <!-- Redirección tras enviar -->
+      <!-- URL ABSOLUTA -->
       <input type="hidden" name="_next" value="https://claisico.com/gracias.html">
 
       <p><input class="w3-input w3-border" type="text" placeholder="Nombre" required name="name" aria-label="Nombre"></p>
