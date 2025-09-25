@@ -1,16 +1,14 @@
-# Consolidación: restaurar mejoras UI/UX + fix contacto con _next absoluto
+# UI: Añadir logo.png en navbar + asegurar contraste en móvil
 
-Este PR **reconcilia** cambios para que no se pierdan mejoras anteriores y además mantiene el envío del formulario:
+Este PR:
+- Inserta el **logo** en la parte superior izquierda del navbar usando `img/logo.png`.
+- Añade estilos para **asegurar contraste en móvil** (navbar oscuro; el logo PNG se invierte con `filter`).
 
-- Restaura mejoras de UI/UX: tarjetas de servicios iguales, hover, gradiente en CTAs, títulos con acento, scroll reveal, navbar glassy, botón “Arriba”, parallax y dark-mode.
-- Mantiene el contacto:
-  - Email visible: `info@claisico.com`
-  - FormSubmit con `method="POST"` y `_next` a **URL absoluta** `https://claisico.com/gracias.html`
-- Incluye `gracias.html` en la raíz.
+### Cambios
+- `index.html` → reemplazar el bloque del **navbar** por `navbar_fragment.html`.
+- `styles.css` → añadir al final el contenido de `styles_addition.css`.
 
-> Posible causa de pérdida: merge desde una rama/commit antiguo o subida de un `index.html` previo. Este PR parte del estado actual y aplica el conjunto completo.
-
-Archivos:
-- `index.html`, `styles.css`, `app.js`, `gracias.html`
+> Nota: Este PR asume que ya subiste el archivo **`img/logo.png`** a la rama fuente (Pages).  
+> Si el logo está en otra ruta, cambia `src="img/logo.png"` en el fragmento.
 
 — ChatGPT
