@@ -175,29 +175,25 @@
   <p class="w3-center w3-large">Problema claro, solución a medida y resultados medibles.</p>
 
   <!-- Filtros -->
-  <div class="w3-center w3-margin-top w3-margin-bottom">
+<div class="w3-center w3-margin-top w3-margin-bottom">
   <div class="filters">
-    <button class="w3-button w3-round w3-small filter-btn active" data-filter="ventas">Ventas</button>
+    <button class="w3-button w3-round w3-small filter-btn active" data-filter="all">Todos</button>
+    <button class="w3-button w3-round w3-small filter-btn" data-filter="ventas">Ventas</button>
     <button class="w3-button w3-round w3-small filter-btn" data-filter="soporte">Soporte</button>
     <button class="w3-button w3-round w3-small filter-btn" data-filter="operaciones">Operaciones</button>
     <button class="w3-button w3-round w3-small filter-btn" data-filter="bi">BI / Reporting</button>
   </div>
 </div>
 
-
-  <!-- Logos (prueba social) -->
-  <div class="logos-strip w3-center w3-margin-bottom w3-hide-small">
-    <span class="logo-pill">ACME</span>
-    <span class="logo-pill">Solaris</span>
-    <span class="logo-pill">Novalink</span>
-    <span class="logo-pill">Mercurio</span>
-    <span class="logo-pill">Green & Co</span>
-  </div>
+<div class="cases-toolbar w3-right-align w3-margin-bottom">
+  <button class="w3-button w3-white w3-border cases-prev" aria-label="Ver anteriores">‹</button>
+  <button class="w3-button w3-white w3-border cases-next" aria-label="Ver siguientes">›</button>
+</div>
 
   <!-- Grid de casos -->
-  <div class="w3-row-padding gallery reveal" id="casesGrid">
+<div class="w3-row-padding gallery reveal cases-scroller" id="casesGrid" role="region" aria-label="Carrusel de casos">
 
-    <!-- Caso 1 -->
+  <!-- Caso 1 -->
     <div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="ventas">
       <div class="case-card-inner w3-white w3-hover-shadow">
         <img src="https://picsum.photos/seed/lead/600/400" class="w3-image" alt="Calificación de leads con IA">
@@ -574,10 +570,6 @@
     <div class="w3-container" id="caseModalBody">
       <!-- contenido inyectado -->
     </div>
-    <footer class="w3-container w3-light-grey">
-      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Hablemos</a>
-      <button class="w3-button w3-white w3-border w3-margin-top" onclick="closeCaseModal()">Cerrar</button>
-    </footer>
   </div>
 </div>
 

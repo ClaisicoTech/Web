@@ -186,3 +186,40 @@ html { scroll-behavior: smooth; }
   .detail .lead { color:#cbd5e1; }
 }
 
+/* === Carrusel horizontal de casos === */
+.cases-scroller {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+.cases-scroller .case-card {
+  /* cada tarjeta ocupa un ancho fijo para scroll cómodo */
+  flex: 0 0 320px;          /* ajusta a 300–360 si quieres */
+  scroll-snap-align: start;
+}
+@media (min-width: 640px) {
+  .cases-scroller .case-card { flex-basis: 360px; }
+}
+@media (min-width: 1024px) {
+  .cases-scroller .case-card { flex-basis: 380px; }
+}
+
+/* Botones prev/next */
+.cases-toolbar .w3-button { margin-left: 4px; }
+.cases-toolbar .w3-button:focus-visible {
+  outline: 2px solid #22d3ee; outline-offset: 2px;
+}
+
+/* Scrollbar (opcional, más fino) */
+.cases-scroller::-webkit-scrollbar { height: 8px; }
+.cases-scroller::-webkit-scrollbar-thumb { background: rgba(0,0,0,.25); border-radius: 8px; }
+@media (prefers-color-scheme: dark) {
+  .cases-scroller::-webkit-scrollbar-thumb { background: rgba(255,255,255,.25); }
+}
+
+#caseModalBody { padding-bottom: 24px; }
+
+

@@ -101,22 +101,24 @@ if (form) {
   // Sin preventDefault; el navegador hará el POST al action.
 }
 
-// ==== Casos de éxito: filtros (sin "Todos") ====
+// ==== Casos de éxito: filtros (con "Todos") + carrusel ====
 (() => {
   const grid = document.getElementById('casesGrid');
   const buttons = document.querySelectorAll('.filter-btn');
   if (!grid || !buttons.length) return;
 
   function applyFilter(cat) {
-    grid.querySelectorAll('.case-card').forEach(card => {
-      const show = card.dataset.cat === cat;
+    const cards = grid.querySelectorAll('.case-card');
+    cards.forEach(card => {
+      const show = (cat === 'all') || (card.dataset.cat === cat);
       card.style.display = show ? '' : 'none';
     });
+    // Tras filtrar, vuelve al inicio del carrusel
+    grid.scrollTo({ left: 0, behavior: 'smooth' });
   }
 
-  // Por defecto: primera categoría activa
-  const defaultCat = buttons[0].dataset.filter;
-  applyFilter(defaultCat);
+  // Default: "Todos"
+  applyFilter('all');
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -125,7 +127,26 @@ if (form) {
       applyFilter(btn.dataset.filter);
     });
   });
+
+  // Navegación del carrusel (prev/next)
+  const prev = document.querySelector('.cases-prev');
+  const next = document.querySelector('.cases-next');
+  const SCROLL_STEP = 360; // píxeles aproximados de una tarjeta
+
+  function scrollByStep(dir = 1) {
+    grid.scrollBy({ left: dir * SCROLL_STEP, behavior: 'smooth' });
+  }
+  if (prev) prev.addEventListener('click', () => scrollByStep(-1));
+  if (next) next.addEventListener('click', () => scrollByStep(1));
+
+  // Permitir teclas ← → cuando el carrusel tiene foco
+  grid.setAttribute('tabindex', '0');
+  grid.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') scrollByStep(1);
+    if (e.key === 'ArrowLeft')  scrollByStep(-1);
+  });
 })();
+
 
 // ==== Casos de éxito: modal ====
 (() => {
