@@ -1,0 +1,22 @@
+/* === Rotador de palabras clave en HERO === */
+.kw-rotator {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s ease, transform .4s ease;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.55);
+  text-underline-offset: 3px;
+}
+.kw-rotator.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Modo oscuro / móvil: subrayado un poco más visible */
+@media (max-width: 640px), (prefers-color-scheme: dark) {
+  .kw-rotator {
+    text-decoration-color: rgba(255,255,255,.8);
+  }
+}
