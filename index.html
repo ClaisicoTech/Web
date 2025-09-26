@@ -16,12 +16,8 @@
 <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide" aria-label="Claisico, ir al inicio">
-      <!-- Intento 1: logo de archivo -->
-      <img src="img/logo.png?v=1" alt="Claisico" class="logo-img" width="140" height="32" loading="eager" decoding="async"
-           onerror="this.style.display='none'; var fb=document.getElementById('logo-fallback'); if(fb) fb.style.display='inline-block';">
-      <!-- Fallback de texto (por si la ruta no coincide) -->
-      <span id="logo-fallback" class="logo-fallback" style="display:none;">CLAISICO</span>
+    <a href="#home" class="w3-bar-item w3-button w3-wide">
+      <span class="brand-text-dark"><b>CLAISICO</b></span>
     </a>
     <!-- Enlaces derecha -->
     <div class="w3-right w3-hide-small">
@@ -48,20 +44,12 @@
   <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Contacto</a>
 </nav>
 
-<!-- Hero con rotador -->
+<!-- Hero -->
 <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" role="banner">
   <div class="w3-display-left w3-text-white hero-copy">
     <span class="w3-jumbo w3-hide-small"><b>Automatiza. Conversa. Crece.</b></span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium"><b>Automatiza. Conversa. Crece.</b></span><br>
-
-    <span class="w3-large">
-      En <b>Claisico</b> construimos automatizaciones y chatbots que convierten, y cuadros de mando que te hacen decidir más rápido.
-      <br>
-      <span class="w3-large">
-        Especialistas en <span class="kw-rotator" aria-live="polite"></span>.
-      </span>
-    </span>
-
+    <span class="w3-large">En <b>Claisico</b> construimos automatizaciones y chatbots que convierten, y cuadros de mando que te hacen decidir más rápido.</span>
     <p class="hero-ctas">
       <a href="#services" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Ver servicios</a>
       <a href="#contact" class="w3-button brand-bg w3-padding-large w3-large w3-margin-top w3-text-white">Pide demo</a>
@@ -74,9 +62,201 @@
   </div>
 </header>
 
-<!-- ... resto de secciones sin cambios por brevedad ... -->
+<!-- About -->
+<div class="w3-container section" id="about">
+  <h3 class="w3-center">Quiénes somos</h3>
+  <p class="w3-center w3-large">Equipo ágil con foco en negocio: entregamos valor en semanas, no en meses.</p>
 
-<!-- Contacto (se mantiene el form con _next absoluto) -->
+  <div class="w3-row-padding w3-center features reveal">
+    <div class="w3-quarter">
+      <i class="fa fa-bolt w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Automatización</p>
+      <p>Orquestamos procesos con RPA/IA y APIs para ahorrar tiempo y errores.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-comments w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Chatbots</p>
+      <p>Asistentes conversacionales en web, WhatsApp y teléfono que resuelven al primer contacto.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-phone w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Cold Calling AI</p>
+      <p>Agentes de voz que llaman, cualifican y agendan reuniones con tono humano.</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-bar-chart w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Reporting & BI</p>
+      <p>Dashboards claros en tiempo real para dirigir ventas, operaciones y soporte.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Servicios -->
+<div class="w3-container w3-light-grey section" id="services">
+  <h3 class="w3-center">Servicios Claisico</h3>
+  <p class="w3-center w3-large">Diseñamos, implementamos y medimos. Sin humo.</p>
+
+  <div class="w3-row-padding cards reveal">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-white w3-padding svc-card">
+        <h4><i class="fa fa-bolt brand"></i> Automatización de procesos</h4>
+        <p class="w3-text-dark-grey">Integraciones con CRM/ERP, RPA con IA, aprobaciones y notificaciones. SLA de disponibilidad y monitorización.</p>
+        <ul class="w3-ul">
+          <li>Flujos multi-paso (APIs, webhooks)</li>
+          <li>Validaciones y enriquecimiento de datos</li>
+          <li>Alertas y auditoría</li>
+        </ul>
+        <a href="#contact" class="w3-button brand-bg w3-block w3-text-white">Quiero automatizar</a>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-white w3-padding svc-card">
+        <h4><i class="fa fa-comments brand"></i> Chatbots conversacionales</h4>
+        <p class="w3-text-dark-grey">Bots entrenados con tu documentación que consultan sistemas internos y resuelven casos.</p>
+        <ul class="w3-ul">
+          <li>Web/WhatsApp/Telegram</li>
+          <li>Escalada a agente humano</li>
+          <li>Medición de CSAT/FTF</li>
+        </ul>
+        <a href="#contact" class="w3-button brand-bg w3-block w3-text-white">Quiero un bot</a>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-white w3-padding svc-card">
+        <h4><i class="fa fa-phone brand"></i> Cold calling con IA</h4>
+        <p class="w3-text-dark-grey">Agentes de voz realizan llamadas en frío, cualifican leads y agendan en tu calendario.</p>
+        <ul class="w3-ul">
+          <li>Guiones dinámicos</li>
+          <li>Grabaciones y compliance</li>
+          <li>Integración con CRM</li>
+        </ul>
+        <a href="#contact" class="w3-button brand-bg w3-block w3-text-white">Quiero vender más</a>
+      </div>
+    </div>
+
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-white w3-padding svc-card">
+        <h4><i class="fa fa-bar-chart brand"></i> Reporting y visualización</h4>
+        <p class="w3-text-dark-grey">Cuadros de mando en Power BI/Looker con fuentes unificadas y métricas confiables.</p>
+        <ul class="w3-ul">
+          <li>KPI definidos con negocio</li>
+          <li>Datos en tiempo real / batch</li>
+          <li>Gobernanza y calidad</li>
+        </ul>
+        <a href="#contact" class="w3-button brand-bg w3-block w3-text-white">Quiero mis KPIs</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Métricas -->
+<div class="w3-container w3-row w3-center w3-dark-grey metrics reveal">
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">+30%</span><br>Conversión media con bots
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">-40%</span><br>Tiempo en procesos
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">99.9%</span><br>Disponibilidad de flujos
+  </div>
+  <div class="w3-quarter">
+    <span class="w3-xxlarge">24/7</span><br>Atención automatizada
+  </div>
+</div>
+
+<!-- Casos de uso -->
+<div class="w3-container section" id="work">
+  <h3 class="w3-center">Casos de uso</h3>
+  <p class="w3-center w3-large">Pequeñas victorias que suman en ventas, soporte y operaciones.</p>
+
+  <div class="w3-row-padding gallery reveal">
+    <div class="w3-col l3 m6">
+      <img src="https://picsum.photos/seed/lead/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Calificación automática de leads" />
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="https://picsum.photos/seed/support/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bot de soporte con base de conocimiento" />
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="https://picsum.photos/seed/rpa/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="RPA para backoffice" />
+    </div>
+    <div class="w3-col l3 m6">
+      <img src="https://picsum.photos/seed/bi/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Dashboard de ventas en tiempo real" />
+    </div>
+  </div>
+</div>
+
+<!-- Modal imágenes -->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Cerrar">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image" alt="">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Precios -->
+<div class="w3-container w3-center w3-dark-grey section" id="pricing">
+  <h3>Precios</h3>
+  <p class="w3-large">Planes simples que crecen contigo</p>
+
+  <div class="w3-row-padding plans reveal">
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Starter</li>
+        <li class="w3-padding-16"><b>1</b> automatización / 1 bot</li>
+        <li class="w3-padding-16">Hasta <b>2</b> integraciones</li>
+        <li class="w3-padding-16">Setup + formación</li>
+        <li class="w3-padding-16"><b>Soporte</b> email</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">€ 390</h2>
+          <span class="w3-opacity">/ mes</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="#contact" class="w3-button w3-black w3-padding-large">Empezar</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third">
+      <ul class="w3-ul w3-white w3-hover-shadow plan-featured">
+        <li class="brand-bg w3-xlarge w3-padding-48 w3-text-white">Growth</li>
+        <li class="w3-padding-16"><b>3</b> automatizaciones / 2 bots</li>
+        <li class="w3-padding-16">Hasta <b>5</b> integraciones</li>
+        <li class="w3-padding-16">Dashboards de KPIs</li>
+        <li class="w3-padding-16"><b>Soporte</b> priorizado</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">€ 890</h2>
+          <span class="w3-opacity">/ mes</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="#contact" class="w3-button w3-black w3-padding-large">Solicitar demo</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-section">
+      <ul class="w3-ul w3-white w3-hover-shadow">
+        <li class="w3-black w3-xlarge w3-padding-32">Enterprise</li>
+        <li class="w3-padding-16"><b>Ilimitado</b> por proyecto</li>
+        <li class="w3-padding-16">Integraciones a medida</li>
+        <li class="w3-padding-16">SLA y soporte 24/7</li>
+        <li class="w3-padding-16">Gobernanza de datos</li>
+        <li class="w3-padding-16">
+          <h2 class="w3-wide">A medida</h2>
+          <span class="w3-opacity">según alcance</span>
+        </li>
+        <li class="w3-light-grey w3-padding-24">
+          <a href="#contact" class="w3-button w3-black w3-padding-large">Hablar con ventas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Contacto -->
 <div class="w3-container w3-light-grey section" id="contact">
   <h3 class="w3-center">Contacto</h3>
   <p class="w3-center w3-large">Cuéntanos tu caso. Te proponemos un piloto en 7–14 días.</p>
@@ -88,11 +268,15 @@
     </p>
     <br>
 
+    <!-- FormSubmit: envía a info@claisico.com y redirige a https://claisico.com/gracias.html -->
     <form action="https://formsubmit.co/info@claisico.com" method="POST" id="contactForm">
+      <!-- Anti-spam (honeypot) -->
       <input type="text" name="_honey" style="display:none">
+      <!-- Opcionales -->
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_subject" value="Nuevo contacto desde claisico.com">
       <input type="hidden" name="_template" value="table">
+      <!-- URL ABSOLUTA -->
       <input type="hidden" name="_next" value="https://claisico.com/gracias.html">
 
       <p><input class="w3-input w3-border" type="text" placeholder="Nombre" required name="name" aria-label="Nombre"></p>
@@ -101,6 +285,9 @@
       <p><textarea class="w3-input w3-border" rows="3" placeholder="¿Qué te gustaría automatizar?" name="message" aria-label="Mensaje"></textarea></p>
       <p><button class="w3-button w3-black" type="submit"><i class="fa fa-paper-plane"></i> Enviar</button></p>
     </form>
+
+    <!-- Mapa/imagen opcional -->
+    <img src="https://picsum.photos/1200/400?blur=2" class="w3-image w3-greyscale map-img" alt="Mapa o imagen de oficina">
   </div>
 </div>
 
@@ -115,10 +302,12 @@
   <p>© <span id="year"></span> Claisico • Construido con <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">W3.CSS</a></p>
 </footer>
 
+<!-- Botón flotante Arriba -->
 <a id="toTop" class="w3-button w3-black w3-round-large" href="#home" aria-label="Volver arriba">
   <i class="fa fa-arrow-up"></i>
 </a>
 
+<!-- JS -->
 <script src="app.js" defer></script>
 </body>
 </html>

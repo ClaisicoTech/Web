@@ -1,1 +1,114 @@
-/* (ver PR; estilos completos con logo, alto contraste y rotador) */
+/* Tipografía base y layout */
+body, h1, h2, h3, h4, h5, h6 { font-family: "Raleway", sans-serif; }
+html, body { height: 100%; line-height: 1.8; margin: 0; }
+
+/* Paleta y utilidades */
+.brand { color: #0ea5e9; }
+.brand-bg { background: #0ea5e9; }
+.brand-dark { background: #0b4e63; }
+.brand-text-dark { color: #0b4e63; }
+
+/* Hero */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://picsum.photos/1600/900?blur=1"); /* sustituir por ./img/hero.jpg */
+  min-height: 100%;
+  position: relative;
+}
+.bgimg-1::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.25));
+}
+.hero-copy { padding: 48px; position: relative; z-index: 1; }
+.hero-ctas a { margin-right: 8px; }
+.hero-social { padding: 24px 48px; position: relative; z-index: 1; }
+
+/* Secciones */
+.section { padding: 96px 16px; }
+.features { margin-top: 48px; }
+.cards { margin-top: 48px; }
+.metrics { padding: 64px 16px; }
+.gallery { margin-top: 48px; }
+.plans { margin-top: 48px; }
+.contact-inner { margin-top: 32px; }
+.map-img { width: 100%; margin-top: 24px; }
+
+/* Tarjetas */
+.svc-card { border: 1px solid #eee; border-radius: 10px; }
+.svc-card .w3-button { border-radius: 8px; }
+
+/* Precio destacado */
+.plan-featured { transform: translateY(-8px); }
+
+/* Navbar spacing */
+.w3-bar .w3-button { padding: 16px; }
+
+/* === Enhancements === */
+
+/* Igualar altura de tarjetas de Servicios + micro-interacciones */
+.cards .w3-col { display: flex; }
+.svc-card { display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
+.svc-card ul { flex: 1 1 auto; }
+.svc-card .w3-button { margin-top: auto; }
+.svc-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
+
+/* CTA con gradiente animado */
+.brand-bg {
+  background: linear-gradient(90deg, #0ea5e9, #22d3ee, #0ea5e9);
+  background-size: 200% 100%;
+  transition: background-position .3s ease, transform .08s ease;
+}
+.brand-bg:hover { background-position: 100% 0; }
+.brand-bg:active { transform: translateY(1px); }
+
+/* Acento bajo títulos de sección */
+.section h3 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: .35rem;
+}
+.section h3::after {
+  content: "";
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: 0;
+  width: 72px; height: 3px;
+  background: linear-gradient(90deg, #0ea5e9, #22d3ee);
+  border-radius: 2px;
+}
+
+/* Aparición suave (scroll reveal) */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; opacity: 1; transform: none; }
+}
+
+/* Navbar glassy al hacer scroll */
+.w3-top.scrolled .w3-bar {
+  background: rgba(255,255,255,.85) !important;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+/* Scroll suave y botón flotante Arriba */
+html { scroll-behavior: smooth; }
+#toTop {
+  position: fixed; right: 16px; bottom: 16px; z-index: 10;
+  display: none;
+}
+
+/* Micro-parallax del copy del hero */
+.hero-copy { will-change: transform; transition: transform .2s ease-out; }
+
+/* Dark mode respetando sistema */
+@media (prefers-color-scheme: dark) {
+  body { background: #0b1220; color: #e5e7eb; }
+  .w3-white { background: #0f172a !important; color: #e5e7eb !important; }
+  .w3-light-grey { background: #0b1220 !important; }
+  .w3-dark-grey { background: #111827 !important; color: #e5e7eb !important; }
+  .svc-card { border-color: #1f2937; }
+  .w3-black { background: #0f172a !important; }
+}
