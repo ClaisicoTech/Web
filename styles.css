@@ -12,7 +12,7 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 .bgimg-1 {
   background-position: center;
   background-size: cover;
-  background-image: url("https://picsum.photos/1600/900?blur=1"); /* sustituir por ./img/hero.jpg */
+  background-image: url('./img/fondo.png'); /* Ruta de la imagen */
   min-height: 100%;
   position: relative;
 }
