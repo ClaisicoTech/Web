@@ -1,9 +1,22 @@
-/* === Logo en navbar (PNG) + contraste móvil === */
-.logo-img { height: 28px; vertical-align: middle; }
+/* === Rotador de palabras clave en HERO === */
+.kw-rotator {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .4s ease, transform .4s ease;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(255,255,255,.55);
+  text-underline-offset: 3px;
+}
+.kw-rotator.in {
+  opacity: 1;
+  transform: none;
+}
 
-/* En móvil el navbar es oscuro: invertimos PNG/JPG para asegurar contraste */
-@media (max-width: 640px) {
-  .w3-top .w3-bar { background:#0b1220 !important; color:#fff !important; }
-  .w3-top .w3-bar .w3-button { color:#fff !important; }
-  .w3-top .logo-img { filter: brightness(0) invert(1); }
+/* Modo oscuro / móvil: subrayado un poco más visible */
+@media (max-width: 640px), (prefers-color-scheme: dark) {
+  .kw-rotator {
+    text-decoration-color: rgba(255,255,255,.8);
+  }
 }
