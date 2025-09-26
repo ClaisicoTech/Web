@@ -11,14 +11,15 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 /* Hero */
 .bgimg-1 {
   background: center / cover no-repeat;
-  /* Fallback universal */
-  background-image: url("./img/hero.jpg");
 
-  /* Opcional: formatos modernos */
+  /* Fallback universal */
+  background-image: url("./omg/hero.jpg");
+
+  /* Opcional: formatos modernos (usa el mismo hero en varios formatos) */
   background-image: image-set(
-    url("./img/hero.avif") type("image/avif"),
-    url("./img/hero.webp") type("image/webp"),
-    url("./img/hero.jpg")  type("image/jpeg")
+    url("./omg/hero.avif") type("image/avif"),
+    url("./omg/hero.webp") type("image/webp"),
+    url("./omg/hero.jpg")  type("image/jpeg")
   );
 
   min-height: 100%;
