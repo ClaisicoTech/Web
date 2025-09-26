@@ -1,17 +1,15 @@
-# UX: Rotador de palabras clave en el hero (fade-in/out)
+# Consolidado: Logo visible + Rotador en hero + mantiene mejoras
 
-Este PR añade un **rotador de términos** en la cabecera (hero) para destacar servicios clave del negocio con una animación suave (aparece/desaparece).
+- Asegura que el **logo** se vea en el navbar usando `img/logo.png?v=1` y muestra un **fallback de texto** si el archivo no existe/ruta distinta.
+- Añade el **rotador de palabras clave** en el hero (fade in/out), respetando `prefers-reduced-motion`.
+- Conserva todas las mejoras previas (tarjetas iguales y hover, navbar glassy, reveal, botón “Arriba”, parallax, dark-mode, alto contraste móvil).
+- Form de contacto sigue con `_next` → `https://claisico.com/gracias.html`.
 
-### Qué incluye
-- `index.html` → actualización del bloque **HERO** para incluir `<span class="kw-rotator" aria-live="polite"></span>`.
-- `styles.css` → estilos para el efecto (`.kw-rotator`), con subrayado y transición.
-- `app.js` → script que rota entre: *automatización de procesos*, *chatbots conversacionales*, *llamadas en frío con IA*, *reporting y BI*, *integraciones y RPA*.
-- Respeta **prefers-reduced-motion**: si el usuario prefiere menos movimiento, se muestra solo la primera palabra sin animación.
+### Qué tocar
+- `index.html` → reemplazar por el incluido o integrar el bloque de navbar + hero.
+- `styles.css` → pegar estilos del PR (logo, alto contraste, rotador).
+- `app.js` → pegar script del PR (enhancements + rotador).
 
-### Cómo aplicarlo
-1. Sustituir el bloque del **hero** por el contenido de `hero_fragment.html`.
-2. Añadir el contenido de `styles_addition.css` al final de `styles.css`.
-3. Añadir el contenido de `app_patch.js` al final de `app.js` (o donde agrupes tus scripts de UI).
-4. Commit en rama nueva → abrir PR → merge a la rama que publica Pages.
+> Si tu logo no está en `img/logo.png`, cambia la ruta en el `<img>`. El fallback **CLAISICO** evita que desaparezca el branding si hay un 404. Tras el merge, fuerza recarga o usa `?v=1` para cache.
 
 — ChatGPT
