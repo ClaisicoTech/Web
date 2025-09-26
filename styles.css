@@ -112,3 +112,22 @@ html { scroll-behavior: smooth; }
   .svc-card { border-color: #1f2937; }
   .w3-black { background: #0f172a !important; }
 }
+
+/* Marca: texto + logo en la navbar */
+.w3-bar .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  white-space: nowrap;
+  color: inherit; /* respeta color actual */
+}
+/* Logo más grande, nítido y sin deformación */
+.brand-logo {
+  height: 32px;   /* cambia aquí: 32–36 es buen rango */
+  width: auto;    /* mantiene proporción */
+  display: inline-block;
+}
+@media (max-width: 480px){
+  .brand-logo { height: 28px; }
+}
+
