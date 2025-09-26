@@ -169,26 +169,418 @@
   </div>
 </div>
 
-<!-- Casos de uso -->
+<!-- Casos de éxito -->
 <div class="w3-container section" id="work">
-  <h3 class="w3-center">Casos de uso</h3>
-  <p class="w3-center w3-large">Pequeñas victorias que suman en ventas, soporte y operaciones.</p>
+  <h3 class="w3-center">Casos de éxito</h3>
+  <p class="w3-center w3-large">Problema claro, solución a medida y resultados medibles.</p>
 
-  <div class="w3-row-padding gallery reveal">
-    <div class="w3-col l3 m6">
-      <img src="https://picsum.photos/seed/lead/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Calificación automática de leads" />
+  <!-- Filtros -->
+  <div class="w3-center w3-margin-top w3-margin-bottom">
+  <div class="filters">
+    <button class="w3-button w3-round w3-small filter-btn active" data-filter="ventas">Ventas</button>
+    <button class="w3-button w3-round w3-small filter-btn" data-filter="soporte">Soporte</button>
+    <button class="w3-button w3-round w3-small filter-btn" data-filter="operaciones">Operaciones</button>
+    <button class="w3-button w3-round w3-small filter-btn" data-filter="bi">BI / Reporting</button>
+  </div>
+</div>
+
+
+  <!-- Logos (prueba social) -->
+  <div class="logos-strip w3-center w3-margin-bottom w3-hide-small">
+    <span class="logo-pill">ACME</span>
+    <span class="logo-pill">Solaris</span>
+    <span class="logo-pill">Novalink</span>
+    <span class="logo-pill">Mercurio</span>
+    <span class="logo-pill">Green & Co</span>
+  </div>
+
+  <!-- Grid de casos -->
+  <div class="w3-row-padding gallery reveal" id="casesGrid">
+
+    <!-- Caso 1 -->
+    <div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="ventas">
+      <div class="case-card-inner w3-white w3-hover-shadow">
+        <img src="https://picsum.photos/seed/lead/600/400" class="w3-image" alt="Calificación de leads con IA">
+        <div class="case-card-body">
+          <div class="case-meta">
+            <span class="badge">SaaS B2B</span>
+            <span class="badge">Ventas</span>
+          </div>
+          <h4 class="case-title">Calificación automática de leads</h4>
+          <ul class="case-kpis">
+            <li><b>+32%</b> tasa de demos</li>
+            <li><b>-58%</b> tiempo de respuesta</li>
+            <li><b>+22%</b> win-rate en 60 días</li>
+          </ul>
+          <button class="w3-button w3-black w3-block open-case" data-case="case1">Ver caso</button>
+        </div>
+      </div>
+      <!-- Detalle oculto -->
+      <div id="case1" class="case-detail" hidden>
+        <div class="detail">
+          <p class="eyebrow">SaaS B2B · Ventas</p>
+          <h3>Calificación de leads con agentes conversacionales</h3>
+          <p class="lead">Antes: SDRs saturados, leads fríos y respuesta tardía. <br>Después: bot multicanal que cualifica, enriquece en el CRM y agenda.</p>
+          <div class="two-col">
+            <div>
+              <h5>Problema</h5>
+              <ul>
+                <li>Tiempo medio de respuesta &gt; 12h.</li>
+                <li>Leads sin priorización ni enriquecimiento.</li>
+                <li>Baja conversión a demo.</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Solución</h5>
+              <ul>
+                <li>Bot web + WhatsApp con scoring automático.</li>
+                <li>Enriquecimiento (dominio, tamaño empresa, sector).</li>
+                <li>Integración con Calendly/Google Calendar.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kpi-compare">
+            <div><span>+32%</span><small>Demos agendadas</small></div>
+            <div><span>-58%</span><small>Tiempo de respuesta</small></div>
+            <div><span>+22%</span><small>Win-rate</small></div>
+          </div>
+          <div class="stack">
+            <h5>Stack</h5>
+            <p>Bot conversacional, API CRM (HubSpot/Salesforce), enriquecimiento (Clearbit/ZoomInfo), webhooks.</p>
+          </div>
+          <blockquote>“El bot cualifica mejor que el 80% de los SDRs junior y agenda al instante.”<br><small>VP Sales, ACME</small></blockquote>
+          <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+        </div>
+      </div>
     </div>
-    <div class="w3-col l3 m6">
-      <img src="https://picsum.photos/seed/support/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bot de soporte con base de conocimiento" />
+
+    <!-- Caso 2 -->
+    <div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="soporte">
+      <div class="case-card-inner w3-white w3-hover-shadow">
+        <img src="https://picsum.photos/seed/support/600/400" class="w3-image" alt="Bot de soporte con base de conocimiento">
+        <div class="case-card-body">
+          <div class="case-meta">
+            <span class="badge">Fintech</span>
+            <span class="badge">Soporte</span>
+          </div>
+          <h4 class="case-title">Resolución al primer contacto</h4>
+          <ul class="case-kpis">
+            <li><b>+47%</b> FCR (First Contact Resolution)</li>
+            <li><b>-35%</b> tickets a humano</li>
+            <li><b>+0.8</b> pts en CSAT</li>
+          </ul>
+          <button class="w3-button w3-black w3-block open-case" data-case="case2">Ver caso</button>
+        </div>
+      </div>
+      <div id="case2" class="case-detail" hidden>
+        <div class="detail">
+          <p class="eyebrow">Fintech · Soporte</p>
+          <h3>FAQ inteligente conectado a sistemas</h3>
+          <p class="lead">Bot responde con documentación y datos en tiempo real (estado de pedido, pagos, límites).</p>
+          <div class="two-col">
+            <div>
+              <h5>Problema</h5>
+              <ul>
+                <li>Coste de soporte elevado.</li>
+                <li>Baja resolución en primer contacto.</li>
+                <li>Tiempo medio de respuesta alto.</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Solución</h5>
+              <ul>
+                <li>Entrenamiento con base de conocimiento.</li>
+                <li>Conexión segura a APIs internas.</li>
+                <li>Escalada con handoff a agente.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kpi-compare">
+            <div><span>+47%</span><small>FCR</small></div>
+            <div><span>-35%</span><small>Desvío a humano</small></div>
+            <div><span>+0.8</span><small>CSAT</small></div>
+          </div>
+          <div class="stack">
+            <h5>Stack</h5>
+            <p>Chatbot, retriever de documentos, OAuth/API Gateway, trazabilidad.</p>
+          </div>
+          <blockquote>“Escalamos picos de demanda sin sumar headcount.”<br><small>Head of Support, Solaris</small></blockquote>
+          <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+        </div>
+      </div>
     </div>
-    <div class="w3-col l3 m6">
-      <img src="https://picsum.photos/seed/rpa/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="RPA para backoffice" />
+
+    <!-- Caso 3 -->
+    <div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="operaciones">
+      <div class="case-card-inner w3-white w3-hover-shadow">
+        <img src="https://picsum.photos/seed/rpa/600/400" class="w3-image" alt="RPA para backoffice">
+        <div class="case-card-body">
+          <div class="case-meta">
+            <span class="badge">Retail</span>
+            <span class="badge">Operaciones</span>
+          </div>
+          <h4 class="case-title">RPA: pedidos y facturas sin manos</h4>
+          <ul class="case-kpis">
+            <li><b>-72%</b> tiempo de proceso</li>
+            <li><b>-0</b> errores de transcripción</li>
+            <li><b>ROI</b> en 11 semanas</li>
+          </ul>
+          <button class="w3-button w3-black w3-block open-case" data-case="case3">Ver caso</button>
+        </div>
+      </div>
+      <div id="case3" class="case-detail" hidden>
+        <div class="detail">
+          <p class="eyebrow">Retail · Operaciones</p>
+          <h3>Automatización de backoffice con RPA + IA</h3>
+          <p class="lead">Robots leen facturas, cruzan datos y actualizan ERP con validaciones y alertas.</p>
+          <div class="two-col">
+            <div>
+              <h5>Problema</h5>
+              <ul>
+                <li>Volumen manual y tareas repetitivas.</li>
+                <li>Errores y re-trabajo.</li>
+                <li>Cuellos de botella mensuales.</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Solución</h5>
+              <ul>
+                <li>OCR inteligente y validación de reglas.</li>
+                <li>APIs con ERP/contabilidad.</li>
+                <li>Alertas y auditoría completa.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kpi-compare">
+            <div><span>-72%</span><small>Tiempo de proceso</small></div>
+            <div><span>0</span><small>Errores</small></div>
+            <div><span>11</span><small>Semanas a ROI</small></div>
+          </div>
+          <div class="stack">
+            <h5>Stack</h5>
+            <p>RPA, OCR, colas de trabajo, conectores ERP, observabilidad.</p>
+          </div>
+          <blockquote>“Liberamos 2 FTE sin despidos, reasignando a tareas de valor.”<br><small>COO, Novalink</small></blockquote>
+          <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+        </div>
+      </div>
     </div>
-    <div class="w3-col l3 m6">
-      <img src="https://picsum.photos/seed/bi/600/400" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Dashboard de ventas en tiempo real" />
+
+    <!-- Caso 4 -->
+    <div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="bi">
+      <div class="case-card-inner w3-white w3-hover-shadow">
+        <img src="https://picsum.photos/seed/bi/600/400" class="w3-image" alt="Dashboard de ventas en tiempo real">
+        <div class="case-card-body">
+          <div class="case-meta">
+            <span class="badge">Logística</span>
+            <span class="badge">BI</span>
+          </div>
+          <h4 class="case-title">KPIs en tiempo real</h4>
+          <ul class="case-kpis">
+            <li><b>–3.1d</b> ciclo de cobro</li>
+            <li><b>+18%</b> productividad de flota</li>
+            <li><b>1 sola</b> “fuente de la verdad”</li>
+          </ul>
+          <button class="w3-button w3-black w3-block open-case" data-case="case4">Ver caso</button>
+        </div>
+      </div>
+      <div id="case4" class="case-detail" hidden>
+        <div class="detail">
+          <p class="eyebrow">Logística · BI</p>
+          <h3>Modelado de datos y dashboards accionables</h3>
+          <p class="lead">Unificamos fuentes, definimos KPIs con negocio y publicamos paneles para ventas y operaciones.</p>
+          <div class="two-col">
+            <div>
+              <h5>Problema</h5>
+              <ul>
+                <li>Datos dispersos y métricas inconsistentes.</li>
+                <li>Decisiones lentas y subjetivas.</li>
+              </ul>
+            </div>
+            <div>
+              <h5>Solución</h5>
+              <ul>
+                <li>ETL hacia modelo común.</li>
+                <li>Definición de KPIs y ownership.</li>
+                <li>Dashboards por rol con alertas.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="kpi-compare">
+            <div><span>-3.1d</span><small>Ciclo de cobro</small></div>
+            <div><span>+18%</span><small>Productividad</small></div>
+            <div><span>1</span><small>Fuente de la verdad</small></div>
+          </div>
+          <div class="stack">
+            <h5>Stack</h5>
+            <p>ETL, Data Warehouse, Power BI/Looker, gobernanza de datos.</p>
+          </div>
+          <blockquote>“Los cierres no son debates: todos vemos lo mismo.”<br><small>CFO, Mercurio</small></blockquote>
+          <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+        </div>
+      </div>
+    </div>
+<!-- Ventas extra -->
+<div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="ventas">
+  <div class="case-card-inner w3-white w3-hover-shadow">
+    <img loading="lazy" src="https://picsum.photos/seed/ventas2/600/400" class="w3-image" alt="Secuencias de prospección con IA">
+    <div class="case-card-body">
+      <div class="case-meta"><span class="badge">SaaS</span><span class="badge">Ventas</span></div>
+      <h4 class="case-title">Prospección automática multicanal</h4>
+      <ul class="case-kpis">
+        <li><b>+41%</b> respuestas positivas</li>
+        <li><b>-50%</b> tiempo SDR</li>
+        <li><b>+19%</b> meetings</li>
+      </ul>
+      <button class="w3-button w3-black w3-block open-case" data-case="case5">Ver caso</button>
+    </div>
+  </div>
+  <div id="case5" class="case-detail" hidden>
+    <div class="detail">
+      <p class="eyebrow">Ventas</p>
+      <h3>Secuencias con IA + agenda</h3>
+      <p class="lead">Secuencias email/WhatsApp adaptadas al tipo de cuenta y priorizadas por intención.</p>
+      <div class="two-col">
+        <div><h5>Problema</h5><ul><li>Baja respuesta en outbound.</li><li>SDRs saturados.</li></ul></div>
+        <div><h5>Solución</h5><ul><li>Mensajes generados por IA según ICP.</li><li>Detección de intención y follow-up.</li></ul></div>
+      </div>
+      <div class="kpi-compare">
+        <div><span>+41%</span><small>Respuestas</small></div>
+        <div><span>-50%</span><small>Tiempo SDR</small></div>
+        <div><span>+19%</span><small>Meetings</small></div>
+      </div>
+      <blockquote>“El pipeline creció sin ampliar equipo.”<br><small>VP Sales</small></blockquote>
+      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
     </div>
   </div>
 </div>
+
+<!-- Soporte extra -->
+<div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="soporte">
+  <div class="case-card-inner w3-white w3-hover-shadow">
+    <img loading="lazy" src="https://picsum.photos/seed/soporte2/600/400" class="w3-image" alt="Auto-resolución de tickets">
+    <div class="case-card-body">
+      <div class="case-meta"><span class="badge">Ecommerce</span><span class="badge">Soporte</span></div>
+      <h4 class="case-title">Auto-resolución de tickets</h4>
+      <ul class="case-kpis">
+        <li><b>+52%</b> auto-resolución</li>
+        <li><b>-28%</b> TMR</li>
+        <li><b>+0.6</b> CSAT</li>
+      </ul>
+      <button class="w3-button w3-black w3-block open-case" data-case="case6">Ver caso</button>
+    </div>
+  </div>
+  <div id="case6" class="case-detail" hidden>
+    <div class="detail">
+      <p class="eyebrow">Soporte</p>
+      <h3>Bot conectado a pedidos y envíos</h3>
+      <p class="lead">Resuelve preguntas comunes y consulta estado de envío y devoluciones en tiempo real.</p>
+      <div class="two-col">
+        <div><h5>Problema</h5><ul><li>Volumen creciente de tickets.</li><li>Esperas largas.</li></ul></div>
+        <div><h5>Solución</h5><ul><li>Bot con conectores a e-commerce.</li><li>Handoff a humano cuando procede.</li></ul></div>
+      </div>
+      <div class="kpi-compare">
+        <div><span>+52%</span><small>Auto-resolución</small></div>
+        <div><span>-28%</span><small>Respuesta</small></div>
+        <div><span>+0.6</span><small>CSAT</small></div>
+      </div>
+      <blockquote>“Los agentes se enfocan en casos críticos.”<br><small>Head of Support</small></blockquote>
+      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+    </div>
+  </div>
+</div>
+
+<!-- Operaciones extra -->
+<div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="operaciones">
+  <div class="case-card-inner w3-white w3-hover-shadow">
+    <img loading="lazy" src="https://picsum.photos/seed/ops2/600/400" class="w3-image" alt="Automatización de onboarding">
+    <div class="case-card-body">
+      <div class="case-meta"><span class="badge">Servicios</span><span class="badge">Operaciones</span></div>
+      <h4 class="case-title">Onboarding automático</h4>
+      <ul class="case-kpis">
+        <li><b>-63%</b> tiempo de alta</li>
+        <li><b>-70%</b> errores</li>
+        <li><b>+100%</b> visibilidad</li>
+      </ul>
+      <button class="w3-button w3-black w3-block open-case" data-case="case7">Ver caso</button>
+    </div>
+  </div>
+  <div id="case7" class="case-detail" hidden>
+    <div class="detail">
+      <p class="eyebrow">Operaciones</p>
+      <h3>Onboarding con RPA + validaciones</h3>
+      <p class="lead">Recoge datos, valida documentos y crea cuentas/sistemas con auditoría.</p>
+      <div class="two-col">
+        <div><h5>Problema</h5><ul><li>Altas lentas y manuales.</li><li>Poca trazabilidad.</li></ul></div>
+        <div><h5>Solución</h5><ul><li>Flujo RPA con checkpoints.</li><li>Alertas de bloqueo y reintentos.</li></ul></div>
+      </div>
+      <div class="kpi-compare">
+        <div><span>-63%</span><small>Tiempo</small></div>
+        <div><span>-70%</span><small>Errores</small></div>
+        <div><span>100%</span><small>Trazabilidad</small></div>
+      </div>
+      <blockquote>“Operaciones predecibles y sin sorpresas.”<br><small>COO</small></blockquote>
+      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+    </div>
+  </div>
+</div>
+
+<!-- BI extra -->
+<div class="w3-col l3 m6 w3-margin-bottom case-card" data-cat="bi">
+  <div class="case-card-inner w3-white w3-hover-shadow">
+    <img loading="lazy" src="https://picsum.photos/seed/bi2/600/400" class="w3-image" alt="Cuadros de mando ejecutivos">
+    <div class="case-card-body">
+      <div class="case-meta"><span class="badge">Servicios</span><span class="badge">BI</span></div>
+      <h4 class="case-title">Cuadros ejecutivos</h4>
+      <ul class="case-kpis">
+        <li><b>-25%</b> tiempo de cierre</li>
+        <li><b>+14%</b> margen por visibilidad</li>
+        <li><b>0</b> fuentes duplicadas</li>
+      </ul>
+      <button class="w3-button w3-black w3-block open-case" data-case="case8">Ver caso</button>
+    </div>
+  </div>
+  <div id="case8" class="case-detail" hidden>
+    <div class="detail">
+      <p class="eyebrow">BI</p>
+      <h3>Panel ejecutivo de control</h3>
+      <p class="lead">KPIs unificados y alertas; cada área ve lo que necesita, cuando lo necesita.</p>
+      <div class="two-col">
+        <div><h5>Problema</h5><ul><li>Demasiados excels y versiones.</li><li>Decisiones lentas.</li></ul></div>
+        <div><h5>Solución</h5><ul><li>Modelo de datos común.</li><li>Paneles por rol con alertas.</li></ul></div>
+      </div>
+      <div class="kpi-compare">
+        <div><span>-25%</span><small>Cierre</small></div>
+        <div><span>+14%</span><small>Margen</small></div>
+        <div><span>0</span><small>Duplicidades</small></div>
+      </div>
+      <blockquote>“Todos hablan el mismo idioma de datos.”<br><small>CFO</small></blockquote>
+      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Quiero algo así</a>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- Modal de caso (reutilizable) -->
+<div id="caseModal" class="w3-modal" aria-hidden="true">
+  <div class="w3-modal-content w3-animate-top case-modal-content">
+    <header class="w3-container w3-black">
+      <span class="w3-button w3-display-topright" onclick="closeCaseModal()" aria-label="Cerrar">×</span>
+      <h3 id="caseModalTitle">Caso</h3>
+      <p id="caseModalEyebrow" class="w3-opacity"></p>
+    </header>
+    <div class="w3-container" id="caseModalBody">
+      <!-- contenido inyectado -->
+    </div>
+    <footer class="w3-container w3-light-grey">
+      <a href="#contact" class="w3-button brand-bg w3-text-white w3-margin-top">Hablemos</a>
+      <button class="w3-button w3-white w3-border w3-margin-top" onclick="closeCaseModal()">Cerrar</button>
+    </footer>
+  </div>
+</div>
+
 
 <!-- Modal imágenes -->
 <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">

@@ -130,4 +130,59 @@ html { scroll-behavior: smooth; }
 @media (max-width: 480px){
   .brand-logo { height: 28px; }
 }
+/* ==== Casos de éxito ==== */
+
+.filters .filter-btn.active { background:#0ea5e9; color:#fff; }
+.filters .filter-btn { margin: 0 4px 8px; }
+
+.logos-strip { opacity:.8; }
+.logo-pill {
+  display:inline-block; padding:8px 14px; margin:6px;
+  border:1px dashed #cbd5e1; border-radius:999px; font-weight:600; font-size:.9rem;
+}
+
+.case-card-inner { border-radius:12px; overflow:hidden; transition:transform .18s ease, box-shadow .18s ease; }
+.case-card-inner:hover { transform: translateY(-4px); box-shadow:0 12px 28px rgba(0,0,0,.12); }
+.case-card-body { padding:14px; }
+.case-meta { margin-bottom:6px; }
+.badge {
+  display:inline-block; font-size:.75rem; background:#eef2ff; color:#1e293b;
+  padding:3px 8px; border-radius:999px; margin-right:6px;
+}
+.case-title { margin:6px 0 8px; }
+.case-kpis { margin:0; padding-left:18px; color:#334155; }
+.case-kpis li { margin:2px 0; }
+
+/* Modal detalle */
+.case-modal-content { max-width: 900px; border-radius:12px; overflow:hidden; }
+#caseModalBody { padding: 18px 22px 24px; }
+.detail .eyebrow { text-transform:uppercase; letter-spacing:.06em; font-size:.8rem; margin:0 }
+.detail .lead { font-size:1.05rem; color:#334155; }
+.detail .two-col { display:grid; gap:16px; grid-template-columns: 1fr 1fr; margin:14px 0; }
+.detail .kpi-compare { display:grid; grid-template-columns: repeat(3,1fr); gap:10px; margin:14px 0; }
+.detail .kpi-compare > div {
+  background:#f1f5f9; border-radius:10px; padding:10px; text-align:center;
+}
+.detail .kpi-compare span { display:block; font-size:1.4rem; font-weight:700; }
+.detail blockquote {
+  margin: 14px 0 0; padding: 12px 14px; background:#0ea5e9; color:#fff; border-radius:10px;
+}
+
+@media (max-width: 720px) {
+  .detail .two-col { grid-template-columns: 1fr; }
+  .detail .kpi-compare { grid-template-columns: 1fr; }
+}
+
+/* Aumentar contraste en móvil (suma a lo que ya metimos) */
+@media (max-width: 640px) {
+  .case-card-inner { box-shadow: 0 8px 18px rgba(0,0,0,.16); }
+  .case-kpis { color:#0b1220; }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .badge { background:#0f172a; color:#e5e7eb; }
+  .detail .kpi-compare > div { background:#0f172a; }
+  .detail .lead { color:#cbd5e1; }
+}
 

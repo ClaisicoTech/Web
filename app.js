@@ -100,3 +100,75 @@ const form = document.getElementById('contactForm');
 if (form) {
   // Sin preventDefault; el navegador hará el POST al action.
 }
+
+// ==== Casos de éxito: filtros (sin "Todos") ====
+(() => {
+  const grid = document.getElementById('casesGrid');
+  const buttons = document.querySelectorAll('.filter-btn');
+  if (!grid || !buttons.length) return;
+
+  function applyFilter(cat) {
+    grid.querySelectorAll('.case-card').forEach(card => {
+      const show = card.dataset.cat === cat;
+      card.style.display = show ? '' : 'none';
+    });
+  }
+
+  // Por defecto: primera categoría activa
+  const defaultCat = buttons[0].dataset.filter;
+  applyFilter(defaultCat);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
+    });
+  });
+})();
+
+// ==== Casos de éxito: modal ====
+(() => {
+  const modal = document.getElementById('caseModal');
+  const title = document.getElementById('caseModalTitle');
+  const eyebrow = document.getElementById('caseModalEyebrow');
+  const body = document.getElementById('caseModalBody');
+
+  function openCase(id) {
+    const detail = document.getElementById(id);
+    if (!detail) return;
+    // Extrae partes del detalle para cabecera
+    const eyebrowEl = detail.querySelector('.eyebrow');
+    const titleEl = detail.querySelector('h3');
+    const content = detail.querySelector('.detail').cloneNode(true);
+
+    title.textContent = titleEl ? titleEl.textContent : 'Caso';
+    eyebrow.textContent = eyebrowEl ? eyebrowEl.textContent : '';
+    // Quita título y eyebrow duplicados dentro del body
+    const firstEyebrow = content.querySelector('.eyebrow'); if (firstEyebrow) firstEyebrow.remove();
+    const firstH3 = content.querySelector('h3'); if (firstH3) firstH3.remove();
+
+    body.innerHTML = '';
+    body.appendChild(content);
+
+    modal.style.display = 'block';
+    modal.setAttribute('aria-hidden', 'false');
+  }
+
+  window.closeCaseModal = function() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  // Abrir modal desde botones
+  document.querySelectorAll('.open-case').forEach(btn => {
+    btn.addEventListener('click', () => openCase(btn.dataset.case));
+  });
+
+  // Cerrar al clicar fuera
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) window.closeCaseModal();
+    });
+  }
+})();
