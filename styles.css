@@ -10,13 +10,17 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 
 /* Hero */
 .bgimg-1 {
-  background-position: center;
-  background-size: cover;
+  background: center / cover no-repeat;
+  /* Fallback universal */
+  background-image: url("./img/hero.jpg");
+
+  /* Opcional: formatos modernos */
   background-image: image-set(
     url("./img/hero.avif") type("image/avif"),
     url("./img/hero.webp") type("image/webp"),
-    url("./img/hero.jpg") type("image/jpeg")
-  ); /* sustituir por ./img/hero.jpg */
+    url("./img/hero.jpg")  type("image/jpeg")
+  );
+
   min-height: 100%;
   position: relative;
 }
