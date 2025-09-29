@@ -222,27 +222,6 @@ html { scroll-behavior: smooth; }
 
 #caseModalBody { padding-bottom: 24px; }
 
-/* About / historia */
-.story .lead { font-size: 1.05rem; color: #334155; }
-.principles .w3-white { transition: transform .18s ease, box-shadow .18s ease; }
-.principles .w3-white:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
-
-/* Equipo (4 personas) */
-.team-card { border-radius: 12px; overflow: hidden; }
-.team-card .avatar {
-  width: 72px; height: 72px; border-radius: 999px; 
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 1.25rem; 
-  background: linear-gradient(135deg, #0ea5e9, #22d3ee);
-  color: #fff; margin: 16px auto 8px;
-}
-.team-grid h4 { margin: 6px 0; }
-
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .story .lead { color: #cbd5e1; }
-}
-
 /* ==== About WOW ==== */
 .about-hero { padding-top: 80px; }
 .about-eyebrow { text-transform: uppercase; letter-spacing: .08em; opacity: .8; margin: 0 0 8px; }
