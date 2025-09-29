@@ -222,4 +222,76 @@ html { scroll-behavior: smooth; }
 
 #caseModalBody { padding-bottom: 24px; }
 
+/* About / historia */
+.story .lead { font-size: 1.05rem; color: #334155; }
+.principles .w3-white { transition: transform .18s ease, box-shadow .18s ease; }
+.principles .w3-white:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.10); }
 
+/* Equipo (4 personas) */
+.team-card { border-radius: 12px; overflow: hidden; }
+.team-card .avatar {
+  width: 72px; height: 72px; border-radius: 999px; 
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.25rem; 
+  background: linear-gradient(135deg, #0ea5e9, #22d3ee);
+  color: #fff; margin: 16px auto 8px;
+}
+.team-grid h4 { margin: 6px 0; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .story .lead { color: #cbd5e1; }
+}
+
+/* ==== About WOW ==== */
+.about-hero { padding-top: 80px; }
+.about-eyebrow { text-transform: uppercase; letter-spacing: .08em; opacity: .8; margin: 0 0 8px; }
+.about-title { font-size: clamp(1.6rem, 2.2vw + 1rem, 2.4rem); line-height: 1.2; margin: 0 0 10px; }
+.about-title .grad { background: linear-gradient(90deg, #0ea5e9, #22d3ee); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.about-sub { font-size: 1.05rem; color: #334155; max-width: 60ch; }
+
+/* Manifiesto */
+.manifesto { margin-top: 28px; background: linear-gradient(180deg, rgba(14,165,233,.08), rgba(34,211,238,.08)); border: 1px solid rgba(14,165,233,.18); border-radius: 14px; padding: 16px 18px; }
+.manifesto .quote { margin: 0 0 10px; }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
+.pills li { padding: 6px 10px; border-radius: 999px; background: #fff; border: 1px dashed #bae6fd; font-size: .85rem; }
+@media (prefers-color-scheme: dark) {
+  .about-sub { color: #cbd5e1; }
+  .manifesto { background: linear-gradient(180deg, rgba(14,165,233,.12), rgba(34,211,238,.12)); border-color: rgba(34,211,238,.25); }
+  .pills li { background: #0f172a; border-color: #1f2937; color: #e5e7eb; }
+}
+
+/* Timeline */
+.timeline { display: grid; grid-template-columns: repeat(4, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; position: relative; }
+.timeline .step { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 14px; position: relative; }
+.timeline .dot { width: 10px; height: 10px; border-radius: 50%; background: #0ea5e9; position: absolute; top: -6px; left: 14px; box-shadow: 0 0 0 4px rgba(14,165,233,.18); }
+.timeline h5 { margin: 2px 0 6px; }
+@media (max-width: 900px) { .timeline { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .timeline { grid-template-columns: 1fr; } }
+
+/* Impact counters */
+.impact { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 22px 0 6px; }
+.impact-item { background:#0f172a; color:#fff; border-radius: 12px; padding: 14px; text-align:center; }
+.impact .num { font-variant-numeric: tabular-nums; font-size: 1.8rem; font-weight: 800; display:block; }
+.impact small { opacity:.85; }
+@media (max-width: 720px) { .impact { grid-template-columns: repeat(2,1fr); } }
+@media (prefers-color-scheme: light) { .impact-item { background:#111827; } }
+
+/* Team strip */
+.team-strip { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; margin-top: 18px; }
+.mate { background:#fff; border: 1px solid #eee; border-radius: 12px; padding: 14px; text-align:center; transition: transform .18s ease, box-shadow .18s ease; }
+.mate:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }
+.mate .avatar { width: 64px; height: 64px; border-radius: 999px; margin: 0 auto 8px; display:flex; align-items:center; justify-content:center; font-weight: 800; color:#fff;
+  background: conic-gradient(from 180deg, #0ea5e9, #22d3ee, #0ea5e9); }
+.mate h6 { margin: 4px 0; font-weight: 700; }
+.mate p { margin: 0; color:#475569; }
+@media (max-width: 900px) { .team-strip { grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 520px) { .team-strip { grid-template-columns: 1fr; } }
+@media (prefers-color-scheme: dark) {
+  .mate { background:#0f172a; border-color:#1f2937; }
+  .mate p { color:#cbd5e1; }
+}
+
+/* Aparecer suave (ya usas .reveal.in; esto solo asegura timing) */
+.about-hero .reveal { opacity:0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
+.about-hero .reveal.in { opacity:1; transform: none; }

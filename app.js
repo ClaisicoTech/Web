@@ -193,3 +193,39 @@ if (form) {
     });
   }
 })();
+
+// Contadores de impacto en "Quiénes somos"
+(() => {
+  const nums = document.querySelectorAll('#about .impact .num');
+  if (!nums.length) return;
+
+  let started = false;
+  function animate() {
+    if (started) return;
+    started = true;
+    nums.forEach(el => {
+      const target = Number(el.dataset.to || 0);
+      const dur = 900; // ms
+      const t0 = performance.now();
+      function tick(t) {
+        const p = Math.min(1, (t - t0) / dur);
+        const val = Math.floor(target * (0.5 - 0.5 * Math.cos(Math.PI * p))); // ease-out (cosine)
+        el.textContent = val;
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // Dispara cuando la sección entra en viewport
+  const about = document.getElementById('about');
+  if ('IntersectionObserver' in window && about) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { animate(); io.disconnect(); }
+    }, { threshold: 0.2 });
+    io.observe(about);
+  } else {
+    // fallback
+    animate();
+  }
+})();
