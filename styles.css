@@ -32,7 +32,7 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 .metrics { padding: 64px 16px; }
 .gallery { margin-top: 48px; }
 .plans { margin-top: 48px; }
-.contact-inner { margin-top: clamp(32px, 6vw, 80px); }
+.contact-inner { margin-top: 32px; }
 .map-img { width: 100%; margin-top: 24px; }
 
 /* Tarjetas */
@@ -52,7 +52,7 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 .svc-card { display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease; }
 .svc-card ul { flex: 1 1 auto; }
 .svc-card .w3-button { margin-top: auto; }
-.svc-card:hover { transform: translateY(-6px); box-shadow: 0 12px clamp(32px, 6vw, 80px) rgba(0,0,0,.12); }
+.svc-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,.12); }
 
 /* CTA con gradiente animado */
 .brand-bg {
@@ -123,7 +123,7 @@ html { scroll-behavior: smooth; }
 }
 /* Logo más grande, nítido y sin deformación */
 .brand-logo {
-  height: clamp(32px, 6vw, 80px);   /* cambia aquí: 32–36 es buen rango */
+  height: 32px;   /* cambia aquí: 32–36 es buen rango */
   width: auto;    /* mantiene proporción */
   display: inline-block;
 }
