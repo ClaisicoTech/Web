@@ -36,7 +36,7 @@ html, body { height: 100%; line-height: 1.8; margin: 0; }
 .map-banner {
   width: 100%;
   height: 320px; /* ajusta la altura según el efecto que quieras */
-  background-image: url('./img/cara.jpg');
+  background-image: url('./img/logo_antic.jpg');
   background-size: cover;       /* la imagen llena el ancho */
   background-position: center;  /* centrada al recortarse */
   background-repeat: no-repeat;
