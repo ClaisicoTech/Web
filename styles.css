@@ -302,3 +302,33 @@ html { scroll-behavior: smooth; }
 /* Aparecer suave (ya usas .reveal.in; esto solo asegura timing) */
 .about-hero .reveal { opacity:0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease; }
 .about-hero .reveal.in { opacity:1; transform: none; }
+/* === Navbar: logo a la izquierda, menú a la derecha === */
+#myNavbar {
+  display: flex;           /* ya lo tienes, lo reafirmamos */
+  align-items: center;     /* centrado vertical */
+  justify-content: flex-start; /* el logo queda a la izq */
+}
+
+/* Si tu grupo de enlaces está envuelto en .w3-right o .menu-desktop,
+   lo empujamos a la derecha con margin-left:auto */
+#myNavbar .w3-right,
+#myNavbar .menu-desktop {
+  margin-left: auto;       /* << clave para llevarlo a la derecha */
+  display: flex;           /* para alinear los items en fila */
+  align-items: center;
+  gap: 16px;               /* separación entre enlaces */
+}
+
+/* Ajuste de padding de los botones del menú (opcional) */
+#myNavbar .w3-right .w3-button,
+#myNavbar .menu-desktop .w3-button {
+  padding: 12px 16px;
+}
+
+/* En móvil ocultas el menú horizontal y usas tu sidebar */
+@media (max-width: 640px) {
+  #myNavbar .w3-right,
+  #myNavbar .menu-desktop {
+    display: none;
+  }
+}
