@@ -3,550 +3,261 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Claisico · Automatización, Chatbots y Reporting</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description"
-    content="Transformamos tus datos en información viva. Automatización de procesos, Chatbots conversacionales y Reporting avanzado.">
+  <title>CLAISICO · The Future of Automation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Automatización inteligente, Chatbots y Gobierno del Dato.">
 
-  <!-- Fonts -->
+  <!-- Fonts: Space Grotesk (Headings) + Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 
   <!-- Favicons -->
-  <link rel="icon" href="/img/favicon_big.svg?v=6" type="image/svg+xml">
-  <link rel="icon" href="/img/favicon-32x32.png?v=6" sizes="32x32" type="image/png">
-  <link rel="icon" href="/img/favicon-16x16.png?v=6" sizes="16x16" type="image/png">
-  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png?v=6">
-  <link rel="mask-icon" href="/img/safari-pinned-tab.svg?v=6" color="#0ea5e9">
+  <link rel="icon" href="/img/favicon_big.svg?v=7" type="image/svg+xml">
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar" id="myNavbar">
-    <div class="container navbar-content">
-      <a href="#home" class="brand">
-        <img src="img/logo.png" alt="Claisico" class="brand-logo">
-        <span class="brand-text">CLAISICO</span>
-      </a>
+  <!-- Background Noise/Gradient -->
+  <div class="noise-overlay"></div>
+  <div class="ambient-light"></div>
 
-      <!-- Desktop Menu -->
-      <div class="nav-links hidden-mobile">
-        <a href="#about" class="nav-link">Quiénes somos</a>
-        <a href="#services" class="nav-link">Servicios</a>
-        <a href="#work" class="nav-link">Casos de uso</a>
-        <a href="#contact" class="btn btn-primary btn-sm">Contacto</a>
-      </div>
-
-      <!-- Mobile Menu Toggle -->
-      <button class="mobile-toggle hidden-desktop" aria-label="Abrir menú" onclick="toggleMobileMenu()">
-        <i class="fa fa-bars"></i>
-      </button>
+  <!-- Navbar (Floating Pill) -->
+  <nav class="nav-pill">
+    <a href="#home" class="logo">CLAISICO</a>
+    <div class="nav-links">
+      <a href="#services">Servicios</a>
+      <a href="#work">Casos</a>
+      <a href="#about">Nosotros</a>
     </div>
+    <a href="#contact" class="btn-glow">Demo</a>
   </nav>
 
-  <!-- Mobile Sidebar -->
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-header">
-      <span class="brand-text">CLAISICO</span>
-      <button class="close-btn" onclick="toggleMobileMenu()">×</button>
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-container">
+      <div class="hero-label">AUTOMATIZACIÓN END-TO-END</div>
+      <h1 class="hero-title">
+        Transformamos datos <br>
+        <span class="gradient-text">en información viva.</span>
+      </h1>
+      <p class="hero-sub">
+        Si una tarea se repite, no necesita manos. Si un dato existe, debe contar una historia.
+      </p>
+      <div class="hero-actions">
+        <a href="#work" class="btn-primary">Ver el futuro</a>
+        <a href="#services" class="btn-ghost">Explorar servicios</a>
+      </div>
     </div>
-    <div class="mobile-links">
-      <a href="#about" onclick="toggleMobileMenu()">Quiénes somos</a>
-      <a href="#services" onclick="toggleMobileMenu()">Servicios</a>
-      <a href="#work" onclick="toggleMobileMenu()">Casos de uso</a>
-      <a href="#contact" onclick="toggleMobileMenu()">Contacto</a>
+  </section>
+
+  <!-- Marquee / Concepts -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span>AUTOMATIZACIÓN</span>
+      <span class="separator">·</span>
+      <span>CHATBOTS</span>
+      <span class="separator">·</span>
+      <span>REPORTING</span>
+      <span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span>
+      <span class="separator">·</span>
+      <span>INTEGRACIÓN</span>
+      <span class="separator">·</span>
+      <span>AUTOMATIZACIÓN</span>
+      <span class="separator">·</span>
+      <span>CHATBOTS</span>
+      <span class="separator">·</span>
+      <span>REPORTING</span>
+      <span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span>
+      <span class="separator">·</span>
+      <span>INTEGRACIÓN</span>
+      <span class="separator">·</span>
     </div>
   </div>
 
-  <!-- Hero -->
-  <header class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-text">
-        <h1 class="hero-title">
-          <span class="block-reveal">Automatiza.</span>
-          <span class="block-reveal">Conversa.</span>
-          <span class="block-reveal highlight">Crece.</span>
-        </h1>
-        <p class="hero-subtitle">En <b>Claisico</b> transformamos tus datos en información viva. Automatización
-          end-to-end para empresas que miran al futuro.</p>
-        <div class="hero-actions">
-          <a href="#services" class="btn btn-outline">Ver servicios</a>
-          <a href="#contact" class="btn btn-primary">Pide demo</a>
-        </div>
-      </div>
-      <div class="hero-social">
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Quiénes somos -->
-  <section class="section about" id="about">
+  <!-- Services (Bento Grid) -->
+  <section id="services" class="section-padding">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content reveal-up">
-          <span class="eyebrow">Quiénes somos</span>
-          <h2 class="section-title">Una idea clásica: <span class="gradient-text">transformar las empresas</span>.</h2>
-          <p class="lead">Si una tarea se repite, no necesita manos; si un dato existe, debe contar una historia; si un
-            cliente pregunta, merece una respuesta ahora.</p>
-
-          <div class="manifesto">
-            <p class="quote">“Menos capas, más impacto. Entregamos <b>en semanas</b>, medimos, iteramos y volvemos a
-              entregar.”</p>
-            <ul class="tags">
-              <li>Negocio primero</li>
-              <li>Diseño conversacional</li>
-              <li>Automatización end-to-end</li>
-              <li>Datos accionables</li>
-            </ul>
-          </div>
-
-          <a href="#work" class="btn btn-primary mt-4">Ver casos reales</a>
-        </div>
-
-        <div class="about-timeline reveal-up delay-100">
-          <div class="timeline-item">
-            <div class="timeline-marker">1</div>
-            <div class="timeline-content">
-              <h5>Descubrimiento</h5>
-              <p>Mapeamos el proceso y la métrica que importa: <i>ingreso, coste o NPS</i>.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker">2</div>
-            <div class="timeline-content">
-              <h5>Prototipo</h5>
-              <p>Bot/flujo mínimo funcional en <b>7–14 días</b> para probar hipótesis.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker">3</div>
-            <div class="timeline-content">
-              <h5>Integración</h5>
-              <p>APIs, CRM/ERP, compliance y observabilidad. Sin fricción.</p>
-            </div>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-marker">4</div>
-            <div class="timeline-content">
-              <h5>Escala</h5>
-              <p>Métricas vivas, alertas y mejoras continuas orientadas a ROI.</p>
-            </div>
-          </div>
-        </div>
+      <div class="section-header">
+        <h2>Nuestro Stack</h2>
+        <p>Diseñamos, implementamos y medimos.</p>
       </div>
 
-      <!-- Team -->
-      <div class="team-grid reveal-up delay-200">
-        <div class="team-card">
-          <div class="avatar">A</div>
-          <h6>Automatización</h6>
-          <p>RPA & Orquestación</p>
+      <div class="bento-grid">
+        <!-- Large Item -->
+        <div class="bento-item bento-large">
+          <div class="bento-content">
+            <i class="fa-solid fa-bolt bento-icon"></i>
+            <h3>Automatización de Procesos</h3>
+            <p>Integraciones con IA. SLA de disponibilidad y monitorización. Flujos multi-paso, validaciones y auditoría
+              completa.</p>
+          </div>
+          <div class="bento-bg-1"></div>
         </div>
-        <div class="team-card">
-          <div class="avatar">C</div>
-          <h6>Conversación</h6>
-          <p>Bots de venta & soporte</p>
+
+        <!-- Tall Item -->
+        <div class="bento-item bento-tall">
+          <div class="bento-content">
+            <i class="fa-solid fa-comments bento-icon"></i>
+            <h3>Chatbots</h3>
+            <p>Conversación natural. Web, WhatsApp y Telegram. Escalado a humano y medición de CSAT.</p>
+          </div>
         </div>
-        <div class="team-card">
-          <div class="avatar">D</div>
-          <h6>Datos</h6>
-          <p>Modelado & BI</p>
+
+        <!-- Medium Items -->
+        <div class="bento-item">
+          <div class="bento-content">
+            <i class="fa-solid fa-chart-pie bento-icon"></i>
+            <h3>Reporting</h3>
+            <p>Dashboards en Power BI/Looker. Datos en tiempo real.</p>
+          </div>
         </div>
-        <div class="team-card">
-          <div class="avatar">E</div>
-          <h6>Estrategia</h6>
-          <p>Producto & Métrica</p>
+
+        <div class="bento-item">
+          <div class="bento-content">
+            <i class="fa-solid fa-leaf bento-icon"></i>
+            <h3>ESG</h3>
+            <p>Informes de sostenibilidad y normativas CSRD.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servicios -->
-  <section class="section services bg-light" id="services">
+  <!-- Work (Horizontal Scroll) -->
+  <section id="work" class="section-padding">
     <div class="container">
-      <div class="section-header text-center reveal-up">
-        <h3 class="section-title">Servicios Claisico</h3>
-        <p class="section-subtitle">Diseñamos, implementamos y medimos. Con resultados tangibles.</p>
+      <div class="section-header">
+        <h2>Casos de Éxito</h2>
+        <p>Resultados medibles en semanas, no meses.</p>
+      </div>
+    </div>
+
+    <div class="work-scroller">
+      <!-- Card 1 -->
+      <div class="work-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/lead/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Ventas</span>
+          <h4>Calificación de Leads</h4>
+          <div class="stats">
+            <div><span>+32%</span> Demos</div>
+            <div><span>-58%</span> Tiempo</div>
+          </div>
+        </div>
       </div>
 
-      <div class="services-grid">
-        <!-- Service 1 -->
-        <div class="service-card reveal-up">
-          <div class="icon-box"><i class="fa fa-bolt"></i></div>
-          <h4>Automatización de procesos</h4>
-          <p>Integraciones con IA. SLA de disponibilidad y monitorización.</p>
-          <ul class="feature-list">
-            <li>Flujos multi-paso (APIs, webhooks)</li>
-            <li>Validaciones y enriquecimiento</li>
-            <li>Alertas y auditoría</li>
-          </ul>
-          <a href="#contact" class="btn-link">Quiero automatizar <i class="fa fa-arrow-right"></i></a>
+      <!-- Card 2 -->
+      <div class="work-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/support/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Gobierno</span>
+          <h4>Gobierno del Dato</h4>
+          <div class="stats">
+            <div><span>100%</span> Trazabilidad</div>
+            <div><span>+47%</span> Control</div>
+          </div>
         </div>
+      </div>
 
-        <!-- Service 2 -->
-        <div class="service-card reveal-up delay-100">
-          <div class="icon-box"><i class="fa fa-comments"></i></div>
-          <h4>Chatbots conversacionales</h4>
-          <p>Bots entrenados para que consulten sistemas internos y resuelven casos.</p>
-          <ul class="feature-list">
-            <li>Web/WhatsApp/Telegram</li>
-            <li>Escalada a agente humano</li>
-            <li>Medición de CSAT/FTF</li>
-          </ul>
-          <a href="#contact" class="btn-link">Quiero un bot <i class="fa fa-arrow-right"></i></a>
+      <!-- Card 3 -->
+      <div class="work-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/rpa/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Operaciones</span>
+          <h4>RPA Pedidos</h4>
+          <div class="stats">
+            <div><span>-72%</span> Proceso</div>
+            <div><span>0</span> Errores</div>
+          </div>
         </div>
+      </div>
 
-        <!-- Service 3 -->
-        <div class="service-card reveal-up delay-200">
-          <div class="icon-box"><i class="fa fa-leaf"></i></div>
-          <h4>Informes ESG</h4>
-          <p>Reporting medioambiental, social, y de gobernanza.</p>
-          <ul class="feature-list">
-            <li>Sostenibilidad corporativa</li>
-            <li>Normativas CSRD</li>
-            <li>Ganar confianza</li>
-          </ul>
-          <a href="#contact" class="btn-link">Quiero comunicar <i class="fa fa-arrow-right"></i></a>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-card reveal-up delay-300">
-          <div class="icon-box"><i class="fa fa-chart-pie"></i></div>
-          <h4>Reporting y Gobierno</h4>
-          <p>Cuadros de mando en Power BI/Looker con fuentes unificadas.</p>
-          <ul class="feature-list">
-            <li>KPI definidos con negocio</li>
-            <li>Datos en tiempo real / batch</li>
-            <li>Gobierno del dato y Calidad</li>
-          </ul>
-          <a href="#contact" class="btn-link">Quiero mis KPIs <i class="fa fa-arrow-right"></i></a>
+      <!-- Card 4 -->
+      <div class="work-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/bi/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">BI</span>
+          <h4>KPIs Real-Time</h4>
+          <div class="stats">
+            <div><span>+18%</span> Productividad</div>
+            <div><span>1</span> Fuente única</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Metrics -->
-  <section class="section metrics-section">
+  <!-- About / Manifesto -->
+  <section id="about" class="section-padding about-section">
     <div class="container">
-      <div class="metrics-grid">
-        <div class="metric-item">
-          <span class="metric-value">+30%</span>
-          <span class="metric-label">Conversión media con bots</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value">-40%</span>
-          <span class="metric-label">Tiempo en procesos</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value">99.9%</span>
-          <span class="metric-label">Control en los datos</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-value">24/7</span>
-          <span class="metric-label">Atención automatizada</span>
+      <div class="manifesto-box">
+        <p class="manifesto-text">
+          "Menos capas, más impacto. Entregamos en <span class="highlight">semanas</span>, medimos, iteramos y volvemos
+          a entregar."
+        </p>
+        <div class="team-avatars">
+          <div class="avatar" title="Automatización">A</div>
+          <div class="avatar" title="Conversación">C</div>
+          <div class="avatar" title="Datos">D</div>
+          <div class="avatar" title="Estrategia">E</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Casos de éxito -->
-  <section class="section work" id="work">
-    <div class="container">
-      <div class="section-header text-center reveal-up">
-        <h3 class="section-title">Casos de éxito</h3>
-        <p class="section-subtitle">Problema claro, solución a medida y resultados medibles.</p>
+  <!-- Contact -->
+  <section id="contact" class="section-padding contact-section">
+    <div class="container contact-container">
+      <div class="contact-left">
+        <h2>¿Listo para escalar?</h2>
+        <p>Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
+        <div class="contact-details">
+          <p><i class="fa-solid fa-envelope"></i> info@claisico.com</p>
+          <p><i class="fa-solid fa-location-dot"></i> Madrid, ES</p>
+        </div>
       </div>
+      <div class="contact-right">
+        <form action="https://formsubmit.co/info@claisico.com" method="POST" class="dark-form">
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_next" value="https://claisico.com/gracias.html">
 
-      <!-- Filters -->
-      <div class="filters-container text-center mb-5">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="ventas">Ventas</button>
-        <button class="filter-btn" data-filter="soporte">Soporte</button>
-        <button class="filter-btn" data-filter="operaciones">Operaciones</button>
-        <button class="filter-btn" data-filter="bi">BI / Reporting</button>
-      </div>
-
-      <!-- Cases Grid -->
-      <div class="cases-grid" id="casesGrid">
-
-        <!-- Case 1 -->
-        <div class="case-card-wrapper" data-cat="ventas">
-          <div class="case-card">
-            <div class="case-image">
-              <img src="https://picsum.photos/seed/lead/600/400" alt="Calificación de leads">
-              <div class="case-overlay">
-                <button class="btn btn-white open-case" data-case="case1">Ver caso</button>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-tags">
-                <span class="badge">SaaS B2B</span>
-                <span class="badge">Ventas</span>
-              </div>
-              <h4>Calificación automática de leads</h4>
-              <div class="case-stats">
-                <div><b>+32%</b> tasa de demos</div>
-                <div><b>-58%</b> tiempo respuesta</div>
-              </div>
-            </div>
+          <div class="input-group">
+            <input type="text" name="name" required placeholder=" ">
+            <label>Nombre</label>
           </div>
-        </div>
-
-        <!-- Case 2 -->
-        <div class="case-card-wrapper" data-cat="bi">
-          <div class="case-card">
-            <div class="case-image">
-              <img src="https://picsum.photos/seed/support/600/400" alt="Gobierno del dato">
-              <div class="case-overlay">
-                <button class="btn btn-white open-case" data-case="case2">Ver caso</button>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-tags">
-                <span class="badge">Gobierno</span>
-                <span class="badge">AS-IS</span>
-              </div>
-              <h4>Gobierno del dato</h4>
-              <div class="case-stats">
-                <div><b>+47%</b> Control</div>
-                <div><b>100%</b> Trazabilidad</div>
-              </div>
-            </div>
+          <div class="input-group">
+            <input type="email" name="email" required placeholder=" ">
+            <label>Email</label>
           </div>
-        </div>
-
-        <!-- Case 3 -->
-        <div class="case-card-wrapper" data-cat="operaciones">
-          <div class="case-card">
-            <div class="case-image">
-              <img src="https://picsum.photos/seed/rpa/600/400" alt="RPA">
-              <div class="case-overlay">
-                <button class="btn btn-white open-case" data-case="case3">Ver caso</button>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-tags">
-                <span class="badge">Retail</span>
-                <span class="badge">Operaciones</span>
-              </div>
-              <h4>RPA: pedidos y facturas</h4>
-              <div class="case-stats">
-                <div><b>-72%</b> tiempo proceso</div>
-                <div><b>0</b> errores</div>
-              </div>
-            </div>
+          <div class="input-group">
+            <textarea name="message" rows="3" required placeholder=" "></textarea>
+            <label>Mensaje</label>
           </div>
-        </div>
-
-        <!-- Case 4 -->
-        <div class="case-card-wrapper" data-cat="bi">
-          <div class="case-card">
-            <div class="case-image">
-              <img src="https://picsum.photos/seed/bi/600/400" alt="KPIs">
-              <div class="case-overlay">
-                <button class="btn btn-white open-case" data-case="case4">Ver caso</button>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-tags">
-                <span class="badge">Logística</span>
-                <span class="badge">BI</span>
-              </div>
-              <h4>KPIs en tiempo real</h4>
-              <div class="case-stats">
-                <div><b>–3.1d</b> ciclo cobro</div>
-                <div><b>+18%</b> productividad</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- More cases (simplified for brevity, keeping structure) -->
-        <div class="case-card-wrapper" data-cat="ventas">
-          <div class="case-card">
-            <div class="case-image">
-              <img src="https://picsum.photos/seed/ventas2/600/400" alt="Formación BI">
-              <div class="case-overlay">
-                <button class="btn btn-white open-case" data-case="case5">Ver caso</button>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-tags">
-                <span class="badge">Formación</span>
-                <span class="badge">BI</span>
-              </div>
-              <h4>Formación BI</h4>
-              <div class="case-stats">
-                <div><b>+100%</b> Conocimientos</div>
-                <div><b>+95%</b> Autonomía</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+          <button type="submit" class="btn-submit">Enviar <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
       </div>
     </div>
   </section>
 
-  <!-- Modals for Cases (Hidden) -->
-  <!-- Case 1 Detail -->
-  <div id="case1" class="case-detail-content" hidden>
-    <div class="modal-header">
-      <span class="eyebrow">SaaS B2B · Ventas</span>
-      <h3>Calificación de leads con agentes conversacionales</h3>
-    </div>
-    <div class="modal-body">
-      <p class="lead">Antes: SDRs saturados, leads fríos y respuesta tardía. <br>Después: bot multicanal que cualifica,
-        enriquece en el CRM y agenda.</p>
-      <div class="grid-2">
-        <div>
-          <h5>Problema</h5>
-          <ul class="check-list">
-            <li>Tiempo medio de respuesta &gt; 12h.</li>
-            <li>Leads sin priorización.</li>
-            <li>Baja conversión a demo.</li>
-          </ul>
-        </div>
-        <div>
-          <h5>Solución</h5>
-          <ul class="check-list">
-            <li>Bot web + WhatsApp con scoring.</li>
-            <li>Enriquecimiento automático.</li>
-            <li>Integración Calendly.</li>
-          </ul>
-        </div>
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-logo">CLAISICO</div>
+      <div class="footer-links">
+        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-github"></i></a>
       </div>
-      <div class="stats-row">
-        <div class="stat-box"><span>+32%</span><small>Demos</small></div>
-        <div class="stat-box"><span>-58%</span><small>Tiempo</small></div>
-        <div class="stat-box"><span>+22%</span><small>Win-rate</small></div>
-      </div>
-      <blockquote class="quote-box">“El bot cualifica mejor que el 80% de los SDRs junior y agenda al instante.”
-        <cite>VP Sales, ACME</cite></blockquote>
-    </div>
-  </div>
-
-  <!-- Placeholder for other case details (logic handled by JS) -->
-  <div id="case2" class="case-detail-content" hidden>
-    <div class="modal-header">
-      <h3>Gobierno del dato</h3>
-    </div>
-    <div class="modal-body">
-      <p>Detalles del caso 2...</p>
-    </div>
-  </div>
-  <div id="case3" class="case-detail-content" hidden>
-    <div class="modal-header">
-      <h3>RPA Pedidos</h3>
-    </div>
-    <div class="modal-body">
-      <p>Detalles del caso 3...</p>
-    </div>
-  </div>
-  <div id="case4" class="case-detail-content" hidden>
-    <div class="modal-header">
-      <h3>KPIs Tiempo Real</h3>
-    </div>
-    <div class="modal-body">
-      <p>Detalles del caso 4...</p>
-    </div>
-  </div>
-  <div id="case5" class="case-detail-content" hidden>
-    <div class="modal-header">
-      <h3>Formación BI</h3>
-    </div>
-    <div class="modal-body">
-      <p>Detalles del caso 5...</p>
-    </div>
-  </div>
-
-
-  <!-- Generic Modal Container -->
-  <div id="modalOverlay" class="modal-overlay" aria-hidden="true" onclick="closeModal()">
-    <div class="modal-container" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal()">×</button>
-      <div id="modalContent"></div>
-      <div class="modal-footer">
-        <a href="#contact" class="btn btn-primary" onclick="closeModal()">Quiero algo así</a>
-      </div>
-    </div>
-  </div>
-
-
-  <!-- Contacto -->
-  <section class="section contact" id="contact">
-    <div class="container">
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <h3 class="section-title text-white">Hablemos</h3>
-          <p class="text-white-50">Cuéntanos tu caso. Te proponemos un piloto en 7–14 días.</p>
-          <div class="info-item">
-            <i class="fa fa-map-marker-alt"></i>
-            <span>Madrid, ES</span>
-          </div>
-          <div class="info-item">
-            <i class="fa fa-envelope"></i>
-            <a href="mailto:info@claisico.com">info@claisico.com</a>
-          </div>
-        </div>
-
-        <div class="contact-form-card">
-          <form action="https://formsubmit.co/info@claisico.com" method="POST" id="contactForm">
-            <input type="text" name="_honey" style="display:none">
-            <input type="hidden" name="_next" value="https://claisico.com/gracias.html">
-
-            <div class="form-group">
-              <label for="name">Nombre</label>
-              <input type="text" id="name" name="name" required placeholder="Tu nombre">
-            </div>
-            <div class="form-group">
-              <label for="email">Correo</label>
-              <input type="email" id="email" name="email" required placeholder="tu@empresa.com">
-            </div>
-            <div class="form-group">
-              <label for="company">Empresa</label>
-              <input type="text" id="company" name="company" placeholder="Nombre de tu empresa">
-            </div>
-            <div class="form-group">
-              <label for="message">Mensaje</label>
-              <textarea id="message" name="message" rows="3" placeholder="¿Qué te gustaría automatizar?"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Enviar mensaje</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-brand">
-          <span class="brand-text">CLAISICO</span>
-          <p>© <span id="year"></span> Claisico</p>
-        </div>
-        <div class="footer-social">
-          <a href="#"><i class="fab fa-linkedin"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-github"></i></a>
-        </div>
-        <a href="#home" class="back-to-top">Arriba <i class="fa fa-arrow-up"></i></a>
-      </div>
+      <div class="footer-copy">© <span id="year"></span> Claisico.</div>
     </div>
   </footer>
 

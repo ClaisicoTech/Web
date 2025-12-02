@@ -1,44 +1,9 @@
-// Año dinámico
 document.addEventListener('DOMContentLoaded', () => {
+  // Dynamic Year
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Initialize scroll animations
-  initScrollReveal();
-
-  // Initialize navbar scroll effect
-  initNavbarScroll();
-
-  // Initialize mobile menu
-  // (Functions are global for onclick handlers in HTML, but we can also attach listeners here if preferred)
-});
-
-// Mobile Menu Logic
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) {
-    menu.classList.toggle('active');
-    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
-  }
-}
-window.toggleMobileMenu = toggleMobileMenu;
-
-// Navbar Scroll Effect
-function initNavbarScroll() {
-  const navbar = document.getElementById('myNavbar');
-  if (!navbar) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }, { passive: true });
-}
-
-// Scroll Reveal Animation
-function initScrollReveal() {
+  // Scroll Animations (Fade In)
   const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -47,83 +12,67 @@ function initScrollReveal() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('active');
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.reveal-up').forEach(el => {
+  // Add fade-in class to elements we want to animate
+  const animatedElements = document.querySelectorAll('.bento-item, .section-header, .hero-title, .hero-sub, .hero-actions');
+  animatedElements.forEach(el => {
+    el.classList.add('fade-in-section');
     observer.observe(el);
   });
-}
 
-// Case Modal Logic
-const modalOverlay = document.getElementById('modalOverlay');
-const modalContent = document.getElementById('modalContent');
+  // Horizontal Scroll Logic (Optional: Add drag to scroll)
+  const slider = document.querySelector('.work-scroller');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
 
-function openCase(caseId) {
-  const sourceContent = document.getElementById(caseId);
-  if (sourceContent && modalOverlay && modalContent) {
-    modalContent.innerHTML = sourceContent.innerHTML;
-    modalOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeModal() {
-  if (modalOverlay) {
-    modalOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-}
-
-window.closeModal = closeModal;
-
-// Attach click listeners to "Ver caso" buttons
-document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('open-case')) {
-    const caseId = e.target.dataset.case;
-    openCase(caseId);
-  }
-});
-
-// Close modal on Escape key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeModal();
-});
-
-// Filter Logic for Cases
-const filterBtns = document.querySelectorAll('.filter-btn');
-const caseWrappers = document.querySelectorAll('.case-card-wrapper');
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Update active button
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-
-    const filter = btn.dataset.filter;
-
-    caseWrappers.forEach(wrapper => {
-      if (filter === 'all' || wrapper.dataset.cat === filter) {
-        wrapper.style.display = 'block';
-        // Trigger reflow for animation if needed
-      } else {
-        wrapper.style.display = 'none';
-      }
+  if (slider) {
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
     });
-  });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  }
 });
 
-// Back to Top
-const backToTop = document.querySelector('.back-to-top');
-if (backToTop) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      backToTop.style.display = 'flex';
-    } else {
-      backToTop.style.display = 'none';
-    }
-  }, { passive: true });
-}
+// Add CSS for fade-in animation dynamically or ensure it's in styles.css
+// We'll add a small helper here just in case, though ideally it's in CSS.
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, visibility;
+  }
+  .fade-in-section.visible {
+    opacity: 1;
+    transform: none;
+  }
+  .work-scroller.active {
+    cursor: grabbing;
+    cursor: -webkit-grabbing;
+  }
+`;
+document.head.appendChild(styleSheet);
