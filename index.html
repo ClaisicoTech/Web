@@ -36,31 +36,28 @@
   <nav class="nav-pill">
     <a href="#home" class="logo magnetic">CLAISICO</a>
     <div class="nav-links">
-      <a href="#services" class="magnetic" data-i18n="nav_services">Servicios</a>
-      <a href="#magic" class="magnetic" data-i18n="nav_tech">Tecnología</a>
-      <a href="#work" class="magnetic" data-i18n="nav_cases">Casos</a>
-      <a href="#about" class="magnetic" data-i18n="nav_about">Nosotros</a>
+      <a href="#services" class="magnetic">Servicios</a>
+      <a href="#magic" class="magnetic">Tecnología</a>
+      <a href="#work" class="magnetic">Casos</a>
+      <a href="#about" class="magnetic">Nosotros</a>
     </div>
-    <div class="nav-actions">
-      <button id="langToggle" class="btn-lang magnetic">EN</button>
-      <a href="#contact" class="btn-glow magnetic" data-i18n="nav_demo">Demo</a>
-    </div>
+    <a href="#contact" class="btn-glow magnetic">Demo</a>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="hero-container">
-      <div class="hero-label fade-in-section" data-i18n="hero_label">AUTOMATIZACIÓN END-TO-END</div>
+      <div class="hero-label fade-in-section">AUTOMATIZACIÓN END-TO-END</div>
       <h1 class="hero-title glitch-text" data-text="Transformamos datos en información viva.">
-        <span data-i18n="hero_title_1">Transformamos datos</span> <br>
-        <span class="gradient-text" data-i18n="hero_title_2">en información viva.</span>
+        Transformamos datos <br>
+        <span class="gradient-text">en información viva.</span>
       </h1>
-      <p class="hero-sub fade-in-section" data-i18n="hero_sub">
+      <p class="hero-sub fade-in-section">
         Si una tarea se repite, no necesita manos. Si un dato existe, debe contar una historia.
       </p>
       <div class="hero-actions fade-in-section">
-        <a href="#work" class="btn-primary magnetic" data-i18n="hero_cta_primary">Ver el futuro</a>
-        <a href="#services" class="btn-ghost magnetic" data-i18n="hero_cta_secondary">Explorar servicios</a>
+        <a href="#work" class="btn-primary magnetic">Ver el futuro</a>
+        <a href="#services" class="btn-ghost magnetic">Explorar servicios</a>
       </div>
     </div>
   </section>
@@ -85,8 +82,8 @@
   <section id="services" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2 class="glitch-text" data-text="Nuestro Stack" data-i18n="services_title">Nuestro Stack</h2>
-        <p data-i18n="services_sub">Diseñamos, implementamos y medimos.</p>
+        <h2 class="glitch-text" data-text="Nuestro Stack">Nuestro Stack</h2>
+        <p>Diseñamos, implementamos y medimos.</p>
       </div>
 
       <div class="bento-grid">
@@ -131,18 +128,17 @@
     </div>
   </section>
 
-  <!-- The Magic -->
+  <!-- The Magic (New Section) -->
   <section id="magic" class="section-padding magic-section">
     <div class="container">
       <div class="magic-grid">
         <div class="magic-text">
-          <h2 class="glitch-text" data-text="La Magia" data-i18n="magic_title">La Magia</h2>
-          <p class="lead" data-i18n="magic_lead">No es solo código. Es una arquitectura viva.</p>
+          <h2 class="glitch-text" data-text="La Magia">La Magia</h2>
+          <p class="lead">No es solo código. Es una arquitectura viva.</p>
           <ul class="magic-list">
-            <li><i class="fa-solid fa-microchip"></i> <span data-i18n="magic_item_1">Algoritmos Propietarios</span></li>
-            <li><i class="fa-solid fa-network-wired"></i> <span data-i18n="magic_item_2">Redes Neuronales
-                Adaptativas</span></li>
-            <li><i class="fa-solid fa-shield-halved"></i> <span data-i18n="magic_item_3">Seguridad Cuántica</span></li>
+            <li><i class="fa-solid fa-microchip"></i> <span>Algoritmos Propietarios</span></li>
+            <li><i class="fa-solid fa-network-wired"></i> <span>Redes Neuronales Adaptativas</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i> <span>Seguridad Cuántica</span></li>
           </ul>
         </div>
         <div class="magic-visual">
@@ -155,75 +151,53 @@
     </div>
   </section>
 
-  <!-- Work (Vertical Stack) -->
+  <!-- Work (Horizontal Scroll) -->
   <section id="work" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2 class="glitch-text" data-text="Casos de Éxito" data-i18n="work_title">Casos de Éxito</h2>
-        <p data-i18n="work_sub">El futuro ya está aquí.</p>
+        <h2 class="glitch-text" data-text="Casos de Éxito">Casos de Éxito</h2>
+        <p>El futuro ya está aquí.</p>
       </div>
+    </div>
+  </section>
 
-      <div class="cases-stack">
-        <!-- Case 1 -->
-        <div class="case-card-large fade-in-section">
-          <div class="case-img" style="background-image: url('https://picsum.photos/seed/drone/800/600');"></div>
-          <div class="case-content">
-            <span class="tag">Logística</span>
-            <h3 data-i18n="case1_title">Global Logistics AI</h3>
-            <p data-i18n="case1_desc">Optimización de rutas de envío globales utilizando algoritmos genéticos y
-              predicción meteorológica en tiempo real.</p>
-            <div class="case-metrics">
-              <div class="metric">
-                <span class="val">99.9%</span>
-                <span class="lbl" data-i18n="metric_uptime">Uptime</span>
-              </div>
-              <div class="metric">
-                <span class="val">-40%</span>
-                <span class="lbl" data-i18n="metric_costs">Costes</span>
-              </div>
-            </div>
+    <div class="work-scroller">
+      <!-- Case 1: HyperStream -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/drone/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Logística</span>
+          <h4>HyperStream Logistics</h4>
+          <p class="work-desc">Orquestación de enjambres de drones autónomos para última milla.</p>
+          <div class="stats">
+            <div><span>99.9%</span> Uptime</div>
+            <div><span>-40%</span> Costes</div>
           </div>
         </div>
 
-        <!-- Case 2 -->
-        <div class="case-card-large reverse fade-in-section">
-          <div class="case-img" style="background-image: url('https://picsum.photos/seed/vault/800/600');"></div>
-          <div class="case-content">
-            <span class="tag">Fintech</span>
-            <h3 data-i18n="case2_title">FinTech Security Core</h3>
-            <p data-i18n="case2_desc">Infraestructura bancaria de próxima generación con detección de anomalías basada
-              en comportamiento.</p>
-            <div class="case-metrics">
-              <div class="metric">
-                <span class="val">0.01s</span>
-                <span class="lbl" data-i18n="metric_latency">Latencia</span>
-              </div>
-              <div class="metric">
-                <span class="val">+95%</span>
-                <span class="lbl" data-i18n="metric_accuracy">Precisión</span>
-              </div>
-            </div>
+      <!-- Case 2: Vault AI -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/vault/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Fintech</span>
+          <h4>Vault AI</h4>
+          <p class="work-desc">Detección de fraude en tiempo real mediante redes neuronales profundas.</p>
+          <div class="stats">
+            <div><span>0.01s</span> Latencia</div>
+            <div><span>+95%</span> Precisión</div>
           </div>
         </div>
 
-        <!-- Case 3 -->
-        <div class="case-card-large fade-in-section">
-          <div class="case-img" style="background-image: url('https://picsum.photos/seed/grid/800/600');"></div>
-          <div class="case-content">
-            <span class="tag">Smart City</span>
-            <h3 data-i18n="case3_title">Smart Grid Energy</h3>
-            <p data-i18n="case3_desc">Red de distribución energética descentralizada que equilibra la carga
-              automáticamente entre nodos urbanos.</p>
-            <div class="case-metrics">
-              <div class="metric">
-                <span class="val">15%</span>
-                <span class="lbl" data-i18n="metric_savings">Ahorro</span>
-              </div>
-              <div class="metric">
-                <span class="val">Auto</span>
-                <span class="lbl" data-i18n="metric_balancing">Balanceo</span>
-              </div>
-            </div>
+      <!-- Case 3: GridNexus -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/grid/800/600');"></div>
+        <div class="work-info">
+          <span class="tag">Smart City</span>
+          <h4>GridNexus</h4>
+          <p class="work-desc">Distribución energética predictiva para infraestructuras urbanas.</p>
+          <div class="stats">
+            <div><span>15%</span> Ahorro</div>
+            <div><span>Auto</span> Balanceo</div>
           </div>
         </div>
       </div>
@@ -252,8 +226,8 @@
   <section id="contact" class="section-padding contact-section">
     <div class="container contact-container">
       <div class="contact-left">
-        <h2 class="glitch-text" data-text="¿Listo para escalar?" data-i18n="contact_title">¿Listo para escalar?</h2>
-        <p data-i18n="contact_sub">Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
+        <h2 class="glitch-text" data-text="¿Listo para escalar?">¿Listo para escalar?</h2>
+        <p>Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
         <div class="contact-details">
           <p><i class="fa-solid fa-envelope"></i> info@claisico.com</p>
           <p><i class="fa-solid fa-location-dot"></i> Madrid, ES</p>
@@ -276,8 +250,7 @@
             <textarea name="message" rows="3" required placeholder=" "></textarea>
             <label data-i18n="form_message">Mensaje</label>
           </div>
-          <button type="submit" class="btn-submit magnetic" data-i18n="form_submit">Enviar <i
-              class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" class="btn-submit magnetic">Enviar <i class="fa-solid fa-arrow-right"></i></button>
         </form>
       </div>
     </div>
