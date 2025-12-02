@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Automatización inteligente, Chatbots y Gobierno del Dato.">
 
-  <!-- Fonts: Space Grotesk (Headings) + Inter (Body) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,35 +25,42 @@
 
 <body>
 
-  <!-- Background Noise/Gradient -->
+  <!-- Magic Canvas Background -->
+  <canvas id="magicCanvas"></canvas>
+
+  <!-- Background Noise/Gradient (Layered) -->
   <div class="noise-overlay"></div>
   <div class="ambient-light"></div>
 
   <!-- Navbar (Floating Pill) -->
   <nav class="nav-pill">
-    <a href="#home" class="logo">CLAISICO</a>
+    <a href="#home" class="logo magnetic">CLAISICO</a>
     <div class="nav-links">
-      <a href="#services">Servicios</a>
-      <a href="#work">Casos</a>
-      <a href="#about">Nosotros</a>
+      <a href="#services" class="magnetic" data-i18n="nav_services">Servicios</a>
+      <a href="#magic" class="magnetic" data-i18n="nav_tech">Tecnología</a>
+      <a href="#work" class="magnetic" data-i18n="nav_cases">Casos</a>
+      <a href="#about" class="magnetic" data-i18n="nav_about">Nosotros</a>
     </div>
-    <a href="#contact" class="btn-glow">Demo</a>
+    <div class="nav-actions">
+      <button id="langToggle" class="btn-lang magnetic">EN</button>
+      <a href="#contact" class="btn-glow magnetic" data-i18n="nav_demo">Demo</a>
+    </div>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="hero-container">
-      <div class="hero-label">AUTOMATIZACIÓN END-TO-END</div>
-      <h1 class="hero-title">
-        Transformamos datos <br>
-        <span class="gradient-text">en información viva.</span>
+      <div class="hero-label fade-in-section" data-i18n="hero_label">AUTOMATIZACIÓN END-TO-END</div>
+      <h1 class="hero-title glitch-text" data-text="Transformamos datos en información viva.">
+        <span data-i18n="hero_title_1">Transformamos datos</span> <br>
+        <span class="gradient-text" data-i18n="hero_title_2">en información viva.</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub fade-in-section" data-i18n="hero_sub">
         Si una tarea se repite, no necesita manos. Si un dato existe, debe contar una historia.
       </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn-primary">Ver el futuro</a>
-        <a href="#services" class="btn-ghost">Explorar servicios</a>
+      <div class="hero-actions fade-in-section">
+        <a href="#work" class="btn-primary magnetic" data-i18n="hero_cta_primary">Ver el futuro</a>
+        <a href="#services" class="btn-ghost magnetic" data-i18n="hero_cta_secondary">Explorar servicios</a>
       </div>
     </div>
   </section>
@@ -61,26 +68,16 @@
   <!-- Marquee / Concepts -->
   <div class="marquee-container">
     <div class="marquee-content">
-      <span>AUTOMATIZACIÓN</span>
-      <span class="separator">·</span>
-      <span>CHATBOTS</span>
-      <span class="separator">·</span>
-      <span>REPORTING</span>
-      <span class="separator">·</span>
-      <span>GOBIERNO DEL DATO</span>
-      <span class="separator">·</span>
-      <span>INTEGRACIÓN</span>
-      <span class="separator">·</span>
-      <span>AUTOMATIZACIÓN</span>
-      <span class="separator">·</span>
-      <span>CHATBOTS</span>
-      <span class="separator">·</span>
-      <span>REPORTING</span>
-      <span class="separator">·</span>
-      <span>GOBIERNO DEL DATO</span>
-      <span class="separator">·</span>
-      <span>INTEGRACIÓN</span>
-      <span class="separator">·</span>
+      <span>AUTOMATIZACIÓN</span><span class="separator">·</span>
+      <span>CHATBOTS</span><span class="separator">·</span>
+      <span>REPORTING</span><span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span><span class="separator">·</span>
+      <span>INTEGRACIÓN</span><span class="separator">·</span>
+      <span>AUTOMATIZACIÓN</span><span class="separator">·</span>
+      <span>CHATBOTS</span><span class="separator">·</span>
+      <span>REPORTING</span><span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span><span class="separator">·</span>
+      <span>INTEGRACIÓN</span><span class="separator">·</span>
     </div>
   </div>
 
@@ -88,109 +85,145 @@
   <section id="services" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2>Nuestro Stack</h2>
-        <p>Diseñamos, implementamos y medimos.</p>
+        <h2 class="glitch-text" data-text="Nuestro Stack" data-i18n="services_title">Nuestro Stack</h2>
+        <p data-i18n="services_sub">Diseñamos, implementamos y medimos.</p>
       </div>
 
       <div class="bento-grid">
         <!-- Large Item -->
-        <div class="bento-item bento-large">
+        <div class="bento-item bento-large magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-bolt bento-icon"></i>
-            <h3>Automatización de Procesos</h3>
-            <p>Integraciones con IA. SLA de disponibilidad y monitorización. Flujos multi-paso, validaciones y auditoría
-              completa.</p>
+            <h3 data-i18n="svc_auto_title">Automatización de Procesos</h3>
+            <p data-i18n="svc_auto_desc">Integraciones con IA. SLA de disponibilidad y monitorización. Flujos
+              multi-paso, validaciones y auditoría completa.</p>
           </div>
           <div class="bento-bg-1"></div>
         </div>
 
         <!-- Tall Item -->
-        <div class="bento-item bento-tall">
+        <div class="bento-item bento-tall magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-comments bento-icon"></i>
-            <h3>Chatbots</h3>
-            <p>Conversación natural. Web, WhatsApp y Telegram. Escalado a humano y medición de CSAT.</p>
+            <h3 data-i18n="svc_bots_title">Chatbots</h3>
+            <p data-i18n="svc_bots_desc">Conversación natural. Web, WhatsApp y Telegram. Escalado a humano y medición de
+              CSAT.</p>
           </div>
         </div>
 
         <!-- Medium Items -->
-        <div class="bento-item">
+        <div class="bento-item magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-chart-pie bento-icon"></i>
-            <h3>Reporting</h3>
-            <p>Dashboards en Power BI/Looker. Datos en tiempo real.</p>
+            <h3 data-i18n="svc_reporting_title">Reporting</h3>
+            <p data-i18n="svc_reporting_desc">Dashboards en Power BI/Looker. Datos en tiempo real.</p>
           </div>
         </div>
 
-        <div class="bento-item">
+        <div class="bento-item magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-leaf bento-icon"></i>
-            <h3>ESG</h3>
-            <p>Informes de sostenibilidad y normativas CSRD.</p>
+            <h3 data-i18n="svc_esg_title">ESG</h3>
+            <p data-i18n="svc_esg_desc">Informes de sostenibilidad y normativas CSRD.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Work (Horizontal Scroll) -->
+  <!-- The Magic -->
+  <section id="magic" class="section-padding magic-section">
+    <div class="container">
+      <div class="magic-grid">
+        <div class="magic-text">
+          <h2 class="glitch-text" data-text="La Magia" data-i18n="magic_title">La Magia</h2>
+          <p class="lead" data-i18n="magic_lead">No es solo código. Es una arquitectura viva.</p>
+          <ul class="magic-list">
+            <li><i class="fa-solid fa-microchip"></i> <span data-i18n="magic_item_1">Algoritmos Propietarios</span></li>
+            <li><i class="fa-solid fa-network-wired"></i> <span data-i18n="magic_item_2">Redes Neuronales
+                Adaptativas</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i> <span data-i18n="magic_item_3">Seguridad Cuántica</span></li>
+          </ul>
+        </div>
+        <div class="magic-visual">
+          <div class="hologram-container">
+            <div class="hologram-ring"></div>
+            <div class="hologram-core"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work (Vertical Stack) -->
   <section id="work" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2>Casos de Éxito</h2>
-        <p>Resultados medibles en semanas, no meses.</p>
+        <h2 class="glitch-text" data-text="Casos de Éxito" data-i18n="work_title">Casos de Éxito</h2>
+        <p data-i18n="work_sub">El futuro ya está aquí.</p>
       </div>
-    </div>
 
-    <div class="work-scroller">
-      <!-- Card 1 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/lead/800/600');"></div>
-        <div class="work-info">
-          <span class="tag">Ventas</span>
-          <h4>Calificación de Leads</h4>
-          <div class="stats">
-            <div><span>+32%</span> Demos</div>
-            <div><span>-58%</span> Tiempo</div>
+      <div class="cases-stack">
+        <!-- Case 1 -->
+        <div class="case-card-large fade-in-section">
+          <div class="case-img" style="background-image: url('https://picsum.photos/seed/drone/800/600');"></div>
+          <div class="case-content">
+            <span class="tag">Logística</span>
+            <h3 data-i18n="case1_title">Global Logistics AI</h3>
+            <p data-i18n="case1_desc">Optimización de rutas de envío globales utilizando algoritmos genéticos y
+              predicción meteorológica en tiempo real.</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="val">99.9%</span>
+                <span class="lbl" data-i18n="metric_uptime">Uptime</span>
+              </div>
+              <div class="metric">
+                <span class="val">-40%</span>
+                <span class="lbl" data-i18n="metric_costs">Costes</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 2 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/support/800/600');"></div>
-        <div class="work-info">
-          <span class="tag">Gobierno</span>
-          <h4>Gobierno del Dato</h4>
-          <div class="stats">
-            <div><span>100%</span> Trazabilidad</div>
-            <div><span>+47%</span> Control</div>
+        <!-- Case 2 -->
+        <div class="case-card-large reverse fade-in-section">
+          <div class="case-img" style="background-image: url('https://picsum.photos/seed/vault/800/600');"></div>
+          <div class="case-content">
+            <span class="tag">Fintech</span>
+            <h3 data-i18n="case2_title">FinTech Security Core</h3>
+            <p data-i18n="case2_desc">Infraestructura bancaria de próxima generación con detección de anomalías basada
+              en comportamiento.</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="val">0.01s</span>
+                <span class="lbl" data-i18n="metric_latency">Latencia</span>
+              </div>
+              <div class="metric">
+                <span class="val">+95%</span>
+                <span class="lbl" data-i18n="metric_accuracy">Precisión</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Card 3 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/rpa/800/600');"></div>
-        <div class="work-info">
-          <span class="tag">Operaciones</span>
-          <h4>RPA Pedidos</h4>
-          <div class="stats">
-            <div><span>-72%</span> Proceso</div>
-            <div><span>0</span> Errores</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/bi/800/600');"></div>
-        <div class="work-info">
-          <span class="tag">BI</span>
-          <h4>KPIs Real-Time</h4>
-          <div class="stats">
-            <div><span>+18%</span> Productividad</div>
-            <div><span>1</span> Fuente única</div>
+        <!-- Case 3 -->
+        <div class="case-card-large fade-in-section">
+          <div class="case-img" style="background-image: url('https://picsum.photos/seed/grid/800/600');"></div>
+          <div class="case-content">
+            <span class="tag">Smart City</span>
+            <h3 data-i18n="case3_title">Smart Grid Energy</h3>
+            <p data-i18n="case3_desc">Red de distribución energética descentralizada que equilibra la carga
+              automáticamente entre nodos urbanos.</p>
+            <div class="case-metrics">
+              <div class="metric">
+                <span class="val">15%</span>
+                <span class="lbl" data-i18n="metric_savings">Ahorro</span>
+              </div>
+              <div class="metric">
+                <span class="val">Auto</span>
+                <span class="lbl" data-i18n="metric_balancing">Balanceo</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -201,15 +234,15 @@
   <section id="about" class="section-padding about-section">
     <div class="container">
       <div class="manifesto-box">
-        <p class="manifesto-text">
+        <p class="manifesto-text" data-i18n="manifesto">
           "Menos capas, más impacto. Entregamos en <span class="highlight">semanas</span>, medimos, iteramos y volvemos
           a entregar."
         </p>
         <div class="team-avatars">
-          <div class="avatar" title="Automatización">A</div>
-          <div class="avatar" title="Conversación">C</div>
-          <div class="avatar" title="Datos">D</div>
-          <div class="avatar" title="Estrategia">E</div>
+          <div class="avatar magnetic" title="Automatización">A</div>
+          <div class="avatar magnetic" title="Conversación">C</div>
+          <div class="avatar magnetic" title="Datos">D</div>
+          <div class="avatar magnetic" title="Estrategia">E</div>
         </div>
       </div>
     </div>
@@ -219,8 +252,8 @@
   <section id="contact" class="section-padding contact-section">
     <div class="container contact-container">
       <div class="contact-left">
-        <h2>¿Listo para escalar?</h2>
-        <p>Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
+        <h2 class="glitch-text" data-text="¿Listo para escalar?" data-i18n="contact_title">¿Listo para escalar?</h2>
+        <p data-i18n="contact_sub">Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
         <div class="contact-details">
           <p><i class="fa-solid fa-envelope"></i> info@claisico.com</p>
           <p><i class="fa-solid fa-location-dot"></i> Madrid, ES</p>
@@ -233,17 +266,18 @@
 
           <div class="input-group">
             <input type="text" name="name" required placeholder=" ">
-            <label>Nombre</label>
+            <label data-i18n="form_name">Nombre</label>
           </div>
           <div class="input-group">
             <input type="email" name="email" required placeholder=" ">
-            <label>Email</label>
+            <label data-i18n="form_email">Email</label>
           </div>
           <div class="input-group">
             <textarea name="message" rows="3" required placeholder=" "></textarea>
-            <label>Mensaje</label>
+            <label data-i18n="form_message">Mensaje</label>
           </div>
-          <button type="submit" class="btn-submit">Enviar <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" class="btn-submit magnetic" data-i18n="form_submit">Enviar <i
+              class="fa-solid fa-arrow-right"></i></button>
         </form>
       </div>
     </div>
@@ -253,13 +287,26 @@
     <div class="container footer-content">
       <div class="footer-logo">CLAISICO</div>
       <div class="footer-links">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-github"></i></a>
       </div>
       <div class="footer-copy">© <span id="year"></span> Claisico.</div>
     </div>
   </footer>
+
+  <!-- Info Popup -->
+  <div id="infoPopup" class="popup-overlay">
+    <div class="popup-content">
+      <button id="closePopup" class="popup-close">×</button>
+      <h3 data-i18n="popup_title">¿Desea obtener más información?</h3>
+      <p data-i18n="popup_desc">Déjanos tu correo y te enviaremos nuestro whitepaper sobre automatización.</p>
+      <form class="popup-form">
+        <input type="email" placeholder="Tu email corporativo" required>
+        <button type="submit" class="btn-glow" data-i18n="popup_btn">Enviar</button>
+      </form>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>
