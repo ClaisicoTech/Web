@@ -1,231 +1,129 @@
-// Año dinámico y funciones base
+// Año dinámico
 document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Initialize scroll animations
+  initScrollReveal();
+
+  // Initialize navbar scroll effect
+  initNavbarScroll();
+
+  // Initialize mobile menu
+  // (Functions are global for onclick handlers in HTML, but we can also attach listeners here if preferred)
 });
 
-// Sidebar móvil
-const mySidebar = document.getElementById("mySidebar");
-function w3_open() {
-  if (!mySidebar) return;
-  mySidebar.style.display = (mySidebar.style.display === 'block') ? 'none' : 'block';
+// Mobile Menu Logic
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) {
+    menu.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  }
 }
-function w3_close() {
-  if (!mySidebar) return;
-  mySidebar.style.display = 'none';
+window.toggleMobileMenu = toggleMobileMenu;
+
+// Navbar Scroll Effect
+function initNavbarScroll() {
+  const navbar = document.getElementById('myNavbar');
+  if (!navbar) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }, { passive: true });
 }
-window.w3_open = w3_open;
-window.w3_close = w3_close;
 
-// Modal de imágenes
-function onClick(element) {
-  const img = document.getElementById("img01");
-  const modal = document.getElementById("modal01");
-  const caption = document.getElementById("caption");
-  if (!img || !modal || !caption) return;
+// Scroll Reveal Animation
+function initScrollReveal() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
 
-  img.src = element.src;
-  modal.style.display = "block";
-  caption.textContent = element.alt || "";
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.reveal-up').forEach(el => {
+    observer.observe(el);
+  });
 }
-window.onClick = onClick;
 
-// Cerrar modal o sidebar con ESC
+// Case Modal Logic
+const modalOverlay = document.getElementById('modalOverlay');
+const modalContent = document.getElementById('modalContent');
+
+function openCase(caseId) {
+  const sourceContent = document.getElementById(caseId);
+  if (sourceContent && modalOverlay && modalContent) {
+    modalContent.innerHTML = sourceContent.innerHTML;
+    modalOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal() {
+  if (modalOverlay) {
+    modalOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+window.closeModal = closeModal;
+
+// Attach click listeners to "Ver caso" buttons
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('open-case')) {
+    const caseId = e.target.dataset.case;
+    openCase(caseId);
+  }
+});
+
+// Close modal on Escape key
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    const modal = document.getElementById("modal01");
-    if (modal) modal.style.display = "none";
-    w3_close();
-  }
+  if (e.key === 'Escape') closeModal();
 });
 
-// === Enhancements ===
+// Filter Logic for Cases
+const filterBtns = document.querySelectorAll('.filter-btn');
+const caseWrappers = document.querySelectorAll('.case-card-wrapper');
 
-// Scroll reveal con IntersectionObserver
-(() => {
-  const items = document.querySelectorAll('.reveal');
-  if (!items.length) return;
-  if (!('IntersectionObserver' in window)) {
-    items.forEach(el => el.classList.add('in'));
-    return;
-  }
-  const io = new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('in');
-        obs.unobserve(e.target);
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active button
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    caseWrappers.forEach(wrapper => {
+      if (filter === 'all' || wrapper.dataset.cat === filter) {
+        wrapper.style.display = 'block';
+        // Trigger reflow for animation if needed
+      } else {
+        wrapper.style.display = 'none';
       }
     });
-  }, { threshold: 0.15 });
-  items.forEach(el => io.observe(el));
-})();
+  });
+});
 
-// Navbar estilo "scrolled"
-(() => {
-  const w3Top = document.querySelector('.w3-top');
-  if (!w3Top) return;
-  const onScroll = () => {
-    if (window.scrollY > 10) w3Top.classList.add('scrolled');
-    else w3Top.classList.remove('scrolled');
-  };
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
-})();
-
-// Botón flotante "Arriba"
-(() => {
-  const toTop = document.getElementById('toTop');
-  if (!toTop) return;
-  const toggleTop = () => {
-    toTop.style.display = window.scrollY > 600 ? 'inline-block' : 'none';
-  };
-  toggleTop();
-  window.addEventListener('scroll', toggleTop, { passive: true });
-})();
-
-// Micro-parallax del copy del hero
-(() => {
-  const heroCopy = document.querySelector('.hero-copy');
-  if (!heroCopy) return;
-  const onScrollHero = () => {
-    const y = Math.min(window.scrollY, 200);
-    heroCopy.style.transform = `translateY(${y * 0.1}px)`;
-  };
-  window.addEventListener('scroll', onScrollHero, { passive: true });
-  onScrollHero();
-})();
-
-// Manejo del formulario (POST tradicional con FormSubmit)
-const form = document.getElementById('contactForm');
-if (form) {
-  // Sin preventDefault; el navegador hará el POST al action.
+// Back to Top
+const backToTop = document.querySelector('.back-to-top');
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+      backToTop.style.display = 'flex';
+    } else {
+      backToTop.style.display = 'none';
+    }
+  }, { passive: true });
 }
-
-// ==== Casos de éxito: filtros (con "Todos") + carrusel ====
-(() => {
-  const grid = document.getElementById('casesGrid');
-  const buttons = document.querySelectorAll('.filter-btn');
-  if (!grid || !buttons.length) return;
-
-  function applyFilter(cat) {
-    const cards = grid.querySelectorAll('.case-card');
-    cards.forEach(card => {
-      const show = (cat === 'all') || (card.dataset.cat === cat);
-      card.style.display = show ? '' : 'none';
-    });
-    // Tras filtrar, vuelve al inicio del carrusel
-    grid.scrollTo({ left: 0, behavior: 'smooth' });
-  }
-
-  // Default: "Todos"
-  applyFilter('all');
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      applyFilter(btn.dataset.filter);
-    });
-  });
-
-  // Navegación del carrusel (prev/next)
-  const prev = document.querySelector('.cases-prev');
-  const next = document.querySelector('.cases-next');
-  const SCROLL_STEP = 360; // píxeles aproximados de una tarjeta
-
-  function scrollByStep(dir = 1) {
-    grid.scrollBy({ left: dir * SCROLL_STEP, behavior: 'smooth' });
-  }
-  if (prev) prev.addEventListener('click', () => scrollByStep(-1));
-  if (next) next.addEventListener('click', () => scrollByStep(1));
-
-  // Permitir teclas ← → cuando el carrusel tiene foco
-  grid.setAttribute('tabindex', '0');
-  grid.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') scrollByStep(1);
-    if (e.key === 'ArrowLeft')  scrollByStep(-1);
-  });
-})();
-
-
-// ==== Casos de éxito: modal ====
-(() => {
-  const modal = document.getElementById('caseModal');
-  const title = document.getElementById('caseModalTitle');
-  const eyebrow = document.getElementById('caseModalEyebrow');
-  const body = document.getElementById('caseModalBody');
-
-  function openCase(id) {
-    const detail = document.getElementById(id);
-    if (!detail) return;
-    // Extrae partes del detalle para cabecera
-    const eyebrowEl = detail.querySelector('.eyebrow');
-    const titleEl = detail.querySelector('h3');
-    const content = detail.querySelector('.detail').cloneNode(true);
-
-    title.textContent = titleEl ? titleEl.textContent : 'Caso';
-    eyebrow.textContent = eyebrowEl ? eyebrowEl.textContent : '';
-    // Quita título y eyebrow duplicados dentro del body
-    const firstEyebrow = content.querySelector('.eyebrow'); if (firstEyebrow) firstEyebrow.remove();
-    const firstH3 = content.querySelector('h3'); if (firstH3) firstH3.remove();
-
-    body.innerHTML = '';
-    body.appendChild(content);
-
-    modal.style.display = 'block';
-    modal.setAttribute('aria-hidden', 'false');
-  }
-
-  window.closeCaseModal = function() {
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-  }
-
-  // Abrir modal desde botones
-  document.querySelectorAll('.open-case').forEach(btn => {
-    btn.addEventListener('click', () => openCase(btn.dataset.case));
-  });
-
-  // Cerrar al clicar fuera
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) window.closeCaseModal();
-    });
-  }
-})();
-
-// Contadores de impacto en "Quiénes somos"
-(() => {
-  const nums = document.querySelectorAll('#about .impact .num');
-  if (!nums.length) return;
-
-  let started = false;
-  function animate() {
-    if (started) return;
-    started = true;
-    nums.forEach(el => {
-      const target = Number(el.dataset.to || 0);
-      const dur = 900; // ms
-      const t0 = performance.now();
-      function tick(t) {
-        const p = Math.min(1, (t - t0) / dur);
-        const val = Math.floor(target * (0.5 - 0.5 * Math.cos(Math.PI * p))); // ease-out (cosine)
-        el.textContent = val;
-        if (p < 1) requestAnimationFrame(tick);
-      }
-      requestAnimationFrame(tick);
-    });
-  }
-
-  // Dispara cuando la sección entra en viewport
-  const about = document.getElementById('about');
-  if ('IntersectionObserver' in window && about) {
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some(e => e.isIntersecting)) { animate(); io.disconnect(); }
-    }, { threshold: 0.2 });
-    io.observe(about);
-  } else {
-    // fallback
-    animate();
-  }
-})();
