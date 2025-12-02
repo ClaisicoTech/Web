@@ -188,6 +188,28 @@ a {
   color: var(--text-main);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-lang {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-lang:hover {
+  border-color: white;
+  color: white;
+}
+
 .btn-glow {
   background: var(--text-main);
   color: black;
@@ -512,42 +534,114 @@ a {
 /* Work Scroller */
 .work-scroller {
   display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding: 0 max(1.5rem, calc((100vw - var(--container-width)) / 2));
-  padding-bottom: 2rem;
-  scroll-snap-type: x mandatory;
+  align-items: center;
+  gap: 1rem;
 }
 
-.work-card {
-  flex: 0 0 400px;
-  scroll-snap-align: center;
+.magic-list i {
+  color: var(--accent-cyan);
+}
+
+.hologram-container {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologram-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(80, 227, 194, 0.3);
+  border-top-color: var(--accent-cyan);
+  animation: spin 4s linear infinite;
+}
+
+.hologram-core {
+  width: 150px;
+  height: 150px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .magic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Work Stack (Vertical) */
+.cases-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.case-card-large {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
   background: var(--bg-card);
-  border-radius: 16px;
-  overflow: hidden;
+  border-radius: 24px;
+  padding: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.3s;
 }
 
-.work-card:hover {
-  transform: scale(1.02);
+.case-card-large:hover {
   border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
 }
 
-.work-image {
-  height: 250px;
+.case-card-large.reverse {
+  direction: rtl;
+}
+
+/* Quick hack for alternating layout, better to use grid areas or flex order */
+.case-card-large.reverse .case-content {
+  direction: ltr;
+}
+
+.case-img {
+  width: 100%;
+  height: 400px;
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
-  transition: 0.3s;
+  border-radius: 16px;
+  opacity: 0.9;
 }
 
-.work-card:hover .work-image {
-  opacity: 1;
-}
-
-.work-info {
-  padding: 1.5rem;
+.case-content {
+  padding: 1rem;
 }
 
 .work-desc {
@@ -557,12 +651,12 @@ a {
 }
 
 .tag {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent-cyan);
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .work-info h4 {
@@ -570,28 +664,42 @@ a {
   margin-bottom: 0.5rem;
 }
 
-.stats {
-  display: flex;
-  gap: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 1rem;
-}
-
-.stats div {
-  font-size: 0.85rem;
+.case-content p {
   color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
 }
 
-.stats span {
+.case-metrics {
+  display: flex;
+  gap: 3rem;
+}
+
+.metric .val {
   display: block;
-  font-size: 1.1rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--text-main);
 }
 
-@media (max-width: 600px) {
-  .work-card {
-    flex: 0 0 85vw;
+.metric .lbl {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .case-card-large {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card-large.reverse {
+    direction: ltr;
+  }
+
+  .case-img {
+    height: 250px;
   }
 }
 
