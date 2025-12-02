@@ -1,4 +1,4 @@
-/* Premium Dark SaaS Design */
+/* Premium Dark SaaS Design + MAGIC */
 :root {
   --bg-body: #050505;
   --bg-card: #0a0a0a;
@@ -38,6 +38,17 @@ body {
   line-height: 1.5;
 }
 
+/* Magic Canvas */
+#magicCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* Background Noise */
 .noise-overlay {
   position: fixed;
@@ -62,7 +73,7 @@ body {
   pointer-events: none;
 }
 
-/* Typography */
+/* Typography & Glitch */
 h1,
 h2,
 h3,
@@ -78,7 +89,67 @@ a {
   transition: 0.3s;
 }
 
-/* Navbar (Floating Pill) */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-body);
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 #ff0080;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  display: none;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 #0070f3;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  display: none;
+}
+
+.glitch-text:hover::before,
+.glitch-text:hover::after {
+  display: block;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(10px, 9999px, 30px, 0);
+    transform: skew(0.3deg);
+  }
+
+  100% {
+    clip: rect(80px, 9999px, 100px, 0);
+    transform: skew(0.1deg);
+  }
+}
+
+@keyframes glitch-anim-2 {
+  0% {
+    clip: rect(60px, 9999px, 80px, 0);
+    transform: skew(0.3deg);
+  }
+
+  100% {
+    clip: rect(20px, 9999px, 50px, 0);
+    transform: skew(0.1deg);
+  }
+}
+
+/* Navbar */
 .nav-pill {
   position: fixed;
   bottom: 2rem;
@@ -142,8 +213,6 @@ a {
   .nav-links {
     display: none;
   }
-
-  /* Hide links on mobile for simplicity */
 }
 
 /* Hero */
@@ -353,6 +422,93 @@ a {
   }
 }
 
+/* Magic Section */
+.magic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.magic-text .lead {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: var(--text-main);
+}
+
+.magic-list {
+  list-style: none;
+}
+
+.magic-list li {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.magic-list i {
+  color: var(--accent-cyan);
+}
+
+.hologram-container {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hologram-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(80, 227, 194, 0.3);
+  border-top-color: var(--accent-cyan);
+  animation: spin 4s linear infinite;
+}
+
+.hologram-core {
+  width: 150px;
+  height: 150px;
+  background: var(--accent-glow);
+  border-radius: 50%;
+  filter: blur(30px);
+  opacity: 0.5;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .magic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Work Scroller */
 .work-scroller {
   display: flex;
@@ -394,6 +550,12 @@ a {
   padding: 1.5rem;
 }
 
+.work-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
 .tag {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -405,7 +567,7 @@ a {
 
 .work-info h4 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .stats {
@@ -617,4 +779,17 @@ footer {
     flex-direction: column;
     gap: 2rem;
   }
+}
+
+/* Fade In */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, visibility;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: none;
 }

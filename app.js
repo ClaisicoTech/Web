@@ -3,12 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Scroll Animations (Fade In)
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
+  // Scroll Animations
+  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -18,14 +14,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, observerOptions);
 
-  // Add fade-in class to elements we want to animate
-  const animatedElements = document.querySelectorAll('.bento-item, .section-header, .hero-title, .hero-sub, .hero-actions');
-  animatedElements.forEach(el => {
+  document.querySelectorAll('.fade-in-section, .bento-item, .work-card, .magic-grid').forEach(el => {
     el.classList.add('fade-in-section');
     observer.observe(el);
   });
 
-  // Horizontal Scroll Logic (Optional: Add drag to scroll)
+  // Horizontal Scroll (Drag)
   const slider = document.querySelector('.work-scroller');
   let isDown = false;
   let startX;
@@ -34,45 +28,91 @@ document.addEventListener('DOMContentLoaded', () => {
   if (slider) {
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
-      slider.classList.add('active');
+      slider.style.cursor = 'grabbing';
       startX = e.pageX - slider.offsetLeft;
       scrollLeft = slider.scrollLeft;
     });
     slider.addEventListener('mouseleave', () => {
       isDown = false;
-      slider.classList.remove('active');
+      slider.style.cursor = 'grab';
     });
     slider.addEventListener('mouseup', () => {
       isDown = false;
-      slider.classList.remove('active');
+      slider.style.cursor = 'grab';
     });
     slider.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Scroll-fast
+      const walk = (x - startX) * 2;
       slider.scrollLeft = scrollLeft - walk;
     });
   }
-});
 
-// Add CSS for fade-in animation dynamically or ensure it's in styles.css
-// We'll add a small helper here just in case, though ideally it's in CSS.
-const styleSheet = document.createElement("style");
-styleSheet.innerText = `
-  .fade-in-section {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    will-change: opacity, visibility;
+  // === MAGIC: Magnetic Buttons ===
+  const magnets = document.querySelectorAll('.magnetic');
+  magnets.forEach(magnet => {
+    magnet.addEventListener('mousemove', (e) => {
+      const rect = magnet.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+
+      // Move element slightly towards cursor
+      magnet.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+
+    magnet.addEventListener('mouseleave', () => {
+      magnet.style.transform = 'translate(0, 0)';
+    });
+  });
+
+  // === MAGIC: Canvas Particles ===
+  const canvas = document.getElementById('magicCanvas');
+  const ctx = canvas.getContext('2d');
+  let width, height;
+  let particles = [];
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
   }
-  .fade-in-section.visible {
-    opacity: 1;
-    transform: none;
+  window.addEventListener('resize', resize);
+  resize();
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * width;
+      this.y = Math.random() * height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2;
+      this.alpha = Math.random() * 0.5;
+    }
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      if (this.x < 0) this.x = width;
+      if (this.x > width) this.x = 0;
+      if (this.y < 0) this.y = height;
+      if (this.y > height) this.y = 0;
+    }
+    draw() {
+      ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
   }
-  .work-scroller.active {
-    cursor: grabbing;
-    cursor: -webkit-grabbing;
+
+  for (let i = 0; i < 50; i++) particles.push(new Particle());
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => {
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animate);
   }
-`;
-document.head.appendChild(styleSheet);
+  animate();
+});

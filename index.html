@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Automatización inteligente, Chatbots y Gobierno del Dato.">
 
-  <!-- Fonts: Space Grotesk (Headings) + Inter (Body) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,35 +25,39 @@
 
 <body>
 
-  <!-- Background Noise/Gradient -->
+  <!-- Magic Canvas Background -->
+  <canvas id="magicCanvas"></canvas>
+
+  <!-- Background Noise/Gradient (Layered) -->
   <div class="noise-overlay"></div>
   <div class="ambient-light"></div>
 
   <!-- Navbar (Floating Pill) -->
   <nav class="nav-pill">
-    <a href="#home" class="logo">CLAISICO</a>
+    <a href="#home" class="logo magnetic">CLAISICO</a>
     <div class="nav-links">
-      <a href="#services">Servicios</a>
-      <a href="#work">Casos</a>
-      <a href="#about">Nosotros</a>
+      <a href="#services" class="magnetic">Servicios</a>
+      <a href="#magic" class="magnetic">Tecnología</a>
+      <a href="#work" class="magnetic">Casos</a>
+      <a href="#about" class="magnetic">Nosotros</a>
     </div>
-    <a href="#contact" class="btn-glow">Demo</a>
+    <a href="#contact" class="btn-glow magnetic">Demo</a>
   </nav>
 
   <!-- Hero Section -->
   <section id="home" class="hero-section">
     <div class="hero-container">
-      <div class="hero-label">AUTOMATIZACIÓN END-TO-END</div>
-      <h1 class="hero-title">
+      <div class="hero-label fade-in-section">AUTOMATIZACIÓN END-TO-END</div>
+      <h1 class="hero-title glitch-text" data-text="Transformamos datos en información viva.">
         Transformamos datos <br>
         <span class="gradient-text">en información viva.</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub fade-in-section">
         Si una tarea se repite, no necesita manos. Si un dato existe, debe contar una historia.
       </p>
-      <div class="hero-actions">
-        <a href="#work" class="btn-primary">Ver el futuro</a>
-        <a href="#services" class="btn-ghost">Explorar servicios</a>
+      <div class="hero-actions fade-in-section">
+        <a href="#work" class="btn-primary magnetic">Ver el futuro</a>
+        <a href="#services" class="btn-ghost magnetic">Explorar servicios</a>
       </div>
     </div>
   </section>
@@ -61,26 +65,16 @@
   <!-- Marquee / Concepts -->
   <div class="marquee-container">
     <div class="marquee-content">
-      <span>AUTOMATIZACIÓN</span>
-      <span class="separator">·</span>
-      <span>CHATBOTS</span>
-      <span class="separator">·</span>
-      <span>REPORTING</span>
-      <span class="separator">·</span>
-      <span>GOBIERNO DEL DATO</span>
-      <span class="separator">·</span>
-      <span>INTEGRACIÓN</span>
-      <span class="separator">·</span>
-      <span>AUTOMATIZACIÓN</span>
-      <span class="separator">·</span>
-      <span>CHATBOTS</span>
-      <span class="separator">·</span>
-      <span>REPORTING</span>
-      <span class="separator">·</span>
-      <span>GOBIERNO DEL DATO</span>
-      <span class="separator">·</span>
-      <span>INTEGRACIÓN</span>
-      <span class="separator">·</span>
+      <span>AUTOMATIZACIÓN</span><span class="separator">·</span>
+      <span>CHATBOTS</span><span class="separator">·</span>
+      <span>REPORTING</span><span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span><span class="separator">·</span>
+      <span>INTEGRACIÓN</span><span class="separator">·</span>
+      <span>AUTOMATIZACIÓN</span><span class="separator">·</span>
+      <span>CHATBOTS</span><span class="separator">·</span>
+      <span>REPORTING</span><span class="separator">·</span>
+      <span>GOBIERNO DEL DATO</span><span class="separator">·</span>
+      <span>INTEGRACIÓN</span><span class="separator">·</span>
     </div>
   </div>
 
@@ -88,13 +82,13 @@
   <section id="services" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2>Nuestro Stack</h2>
+        <h2 class="glitch-text" data-text="Nuestro Stack">Nuestro Stack</h2>
         <p>Diseñamos, implementamos y medimos.</p>
       </div>
 
       <div class="bento-grid">
         <!-- Large Item -->
-        <div class="bento-item bento-large">
+        <div class="bento-item bento-large magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-bolt bento-icon"></i>
             <h3>Automatización de Procesos</h3>
@@ -105,7 +99,7 @@
         </div>
 
         <!-- Tall Item -->
-        <div class="bento-item bento-tall">
+        <div class="bento-item bento-tall magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-comments bento-icon"></i>
             <h3>Chatbots</h3>
@@ -114,7 +108,7 @@
         </div>
 
         <!-- Medium Items -->
-        <div class="bento-item">
+        <div class="bento-item magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-chart-pie bento-icon"></i>
             <h3>Reporting</h3>
@@ -122,7 +116,7 @@
           </div>
         </div>
 
-        <div class="bento-item">
+        <div class="bento-item magnetic-card">
           <div class="bento-content">
             <i class="fa-solid fa-leaf bento-icon"></i>
             <h3>ESG</h3>
@@ -133,64 +127,77 @@
     </div>
   </section>
 
+  <!-- The Magic (New Section) -->
+  <section id="magic" class="section-padding magic-section">
+    <div class="container">
+      <div class="magic-grid">
+        <div class="magic-text">
+          <h2 class="glitch-text" data-text="La Magia">La Magia</h2>
+          <p class="lead">No es solo código. Es una arquitectura viva.</p>
+          <ul class="magic-list">
+            <li><i class="fa-solid fa-microchip"></i> <span>Algoritmos Propietarios</span></li>
+            <li><i class="fa-solid fa-network-wired"></i> <span>Redes Neuronales Adaptativas</span></li>
+            <li><i class="fa-solid fa-shield-halved"></i> <span>Seguridad Cuántica</span></li>
+          </ul>
+        </div>
+        <div class="magic-visual">
+          <div class="hologram-container">
+            <div class="hologram-ring"></div>
+            <div class="hologram-core"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Work (Horizontal Scroll) -->
   <section id="work" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2>Casos de Éxito</h2>
-        <p>Resultados medibles en semanas, no meses.</p>
+        <h2 class="glitch-text" data-text="Casos de Éxito">Casos de Éxito</h2>
+        <p>El futuro ya está aquí.</p>
       </div>
     </div>
 
     <div class="work-scroller">
-      <!-- Card 1 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/lead/800/600');"></div>
+      <!-- Case 1: HyperStream -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/drone/800/600');"></div>
         <div class="work-info">
-          <span class="tag">Ventas</span>
-          <h4>Calificación de Leads</h4>
+          <span class="tag">Logística</span>
+          <h4>HyperStream Logistics</h4>
+          <p class="work-desc">Orquestación de enjambres de drones autónomos para última milla.</p>
           <div class="stats">
-            <div><span>+32%</span> Demos</div>
-            <div><span>-58%</span> Tiempo</div>
+            <div><span>99.9%</span> Uptime</div>
+            <div><span>-40%</span> Costes</div>
           </div>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/support/800/600');"></div>
+      <!-- Case 2: Vault AI -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/vault/800/600');"></div>
         <div class="work-info">
-          <span class="tag">Gobierno</span>
-          <h4>Gobierno del Dato</h4>
+          <span class="tag">Fintech</span>
+          <h4>Vault AI</h4>
+          <p class="work-desc">Detección de fraude en tiempo real mediante redes neuronales profundas.</p>
           <div class="stats">
-            <div><span>100%</span> Trazabilidad</div>
-            <div><span>+47%</span> Control</div>
+            <div><span>0.01s</span> Latencia</div>
+            <div><span>+95%</span> Precisión</div>
           </div>
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/rpa/800/600');"></div>
+      <!-- Case 3: GridNexus -->
+      <div class="work-card magnetic-card">
+        <div class="work-image" style="background-image: url('https://picsum.photos/seed/grid/800/600');"></div>
         <div class="work-info">
-          <span class="tag">Operaciones</span>
-          <h4>RPA Pedidos</h4>
+          <span class="tag">Smart City</span>
+          <h4>GridNexus</h4>
+          <p class="work-desc">Distribución energética predictiva para infraestructuras urbanas.</p>
           <div class="stats">
-            <div><span>-72%</span> Proceso</div>
-            <div><span>0</span> Errores</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="work-card">
-        <div class="work-image" style="background-image: url('https://picsum.photos/seed/bi/800/600');"></div>
-        <div class="work-info">
-          <span class="tag">BI</span>
-          <h4>KPIs Real-Time</h4>
-          <div class="stats">
-            <div><span>+18%</span> Productividad</div>
-            <div><span>1</span> Fuente única</div>
+            <div><span>15%</span> Ahorro</div>
+            <div><span>Auto</span> Balanceo</div>
           </div>
         </div>
       </div>
@@ -206,10 +213,10 @@
           a entregar."
         </p>
         <div class="team-avatars">
-          <div class="avatar" title="Automatización">A</div>
-          <div class="avatar" title="Conversación">C</div>
-          <div class="avatar" title="Datos">D</div>
-          <div class="avatar" title="Estrategia">E</div>
+          <div class="avatar magnetic" title="Automatización">A</div>
+          <div class="avatar magnetic" title="Conversación">C</div>
+          <div class="avatar magnetic" title="Datos">D</div>
+          <div class="avatar magnetic" title="Estrategia">E</div>
         </div>
       </div>
     </div>
@@ -219,7 +226,7 @@
   <section id="contact" class="section-padding contact-section">
     <div class="container contact-container">
       <div class="contact-left">
-        <h2>¿Listo para escalar?</h2>
+        <h2 class="glitch-text" data-text="¿Listo para escalar?">¿Listo para escalar?</h2>
         <p>Cuéntanos tu reto. Te proponemos un piloto en 7–14 días.</p>
         <div class="contact-details">
           <p><i class="fa-solid fa-envelope"></i> info@claisico.com</p>
@@ -243,7 +250,7 @@
             <textarea name="message" rows="3" required placeholder=" "></textarea>
             <label>Mensaje</label>
           </div>
-          <button type="submit" class="btn-submit">Enviar <i class="fa-solid fa-arrow-right"></i></button>
+          <button type="submit" class="btn-submit magnetic">Enviar <i class="fa-solid fa-arrow-right"></i></button>
         </form>
       </div>
     </div>
@@ -253,9 +260,9 @@
     <div class="container footer-content">
       <div class="footer-logo">CLAISICO</div>
       <div class="footer-links">
-        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#"><i class="fa-brands fa-github"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="magnetic"><i class="fa-brands fa-github"></i></a>
       </div>
       <div class="footer-copy">© <span id="year"></span> Claisico.</div>
     </div>
